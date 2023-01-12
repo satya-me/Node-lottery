@@ -1,0 +1,48 @@
+[
+  {
+    "_id": {
+      "$oid": "63b3faafd83b9fa47efabe06"
+    },
+    "first_name": "Satya",
+    "last_name": "Barik",
+    "email": "satya@gmail.com",
+    "phone": {
+      "$numberLong": "9658730362"
+    },
+    "dob": "20-20-2000",
+    "country": "India",
+    "city": "Kolkata",
+    "password": "$2b$10$ckfZDG64xx6O48K9JKw.B.Y7rwO./1GiaqJFlkzsKRnQpPEzXcGc6",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "63b3fc5c6b088f22ecba144e"
+    },
+    "first_name": "Surajit",
+    "last_name": "Pal",
+    "email": "surajit@gmail.com",
+    "phone": {
+      "$numberLong": "9876543210"
+    },
+    "dob": "2019-01-01",
+    "country": "Three",
+    "city": "Two",
+    "password": "$2b$10$oIqevSTJiNFjqqOtHqozbO97JvMWecXZ7d87aAvVcYU3kUfN./0Fq",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "63b40b6ff1c2d495b6b656c8"
+    },
+    "first_name": "Surajit",
+    "last_name": "Pal",
+    "email": "a@gmail.com",
+    "phone": 147852369,
+    "dob": "2018-12-31",
+    "country": "Three",
+    "city": "Three",
+    "password": "$2b$10$2gdf5g96ZO1nHD82Cyxt.uagycFnNEqqD18vlWX4JkN1LvnWRvR2C",
+    "__v": 0
+  }
+]

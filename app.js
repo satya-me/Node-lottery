@@ -1,11 +1,17 @@
 const express = require("express");
+require("dotenv").config();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-// const stuffRoutes = require("./routes/thing");
+const ticketRoutes = require("./Routes/ticket");
 const userRoutes = require("./Routes/User");
+const adminRoutes = require("./Routes/Admin/Admin");
+const testRoutes = require("./Routes/Test");
+const configRoutes = require("./Routes/Config");
 const path = require("path");
 const cors = require("cors");
 
+
+mongoose.set("strictQuery", true);
 mongoose
   .connect("mongodb://127.0.0.1:27017/v1?retryWrites=true&w=majority")
   .then(() => {
@@ -19,22 +25,20 @@ mongoose
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/images", express.static(path.join(__dirname, "images")));
 
-// app.use("/api/stuff", stuffRoutes);
+// User routes
 app.use("/api/auth", userRoutes);
 
-module.exports = app;
+// Admin routes
+app.use("/api/admin", adminRoutes);
 
-// app.use((req, res, next) => {
-//   console.log(res.authorization);
-//   res.setHeader(
-//     "Access-Control-Allow-Origin",
-//     "*",
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization",
-//     "Access-Control-Allow-Methods",
-//     "GET, POST, PUT, DELETE, PATCH, OPTIONS"
-//   );
-//   next();
-// });
+// Global routes
+app.use("/api", configRoutes);
+app.use("/api/ticket", ticketRoutes);
+
+// temp test route
+app.use("/api/test", testRoutes);
+
+module.exports = app;
