@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "63beb03b78829f51787f42a7"
+  },
+  "user_id": "63b57e8716ea752e5158ad08",
+  "balance": 150,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673441339591"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673442279659"
+    }
+  },
+  "__v": 0
+}]

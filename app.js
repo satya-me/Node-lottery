@@ -10,10 +10,9 @@ const configRoutes = require("./Routes/Config");
 const path = require("path");
 const cors = require("cors");
 
-
 mongoose.set("strictQuery", true);
 mongoose
-  .connect("mongodb://127.0.0.1:27017/v1?retryWrites=true&w=majority")
+  .connect(process.env.DB_CONNECTION)
   .then(() => {
     console.log("Successfully connected to MongoDB");
   })

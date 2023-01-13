@@ -1,0 +1,9 @@
+[{
+  "_id": {
+    "$oid": "63b6924156d97cc458d3d304"
+  },
+  "currency": "$",
+  "language": "english",
+  "site_maintenance": false,
+  "site_maintenance_admin": false
+}]

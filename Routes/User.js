@@ -7,8 +7,9 @@ const multer = require("../Middleware/Multer");
 
 router.post("/signup", userCtrl.signup);
 router.post("/login", userCtrl.login);
-router.post("/forget", userCtrl.forgetPassword);
-router.get("/set-password/:token", userCtrl.newPasswordByEmail);
+router.post("/forget", userCtrl.forgetPassword); //enter email
+router.get("/new-password/:token", userCtrl.newPasswordByEmailForm); 
+router.post("/new-password/save", userCtrl.newPasswordSave); 
 
 router.post(
   "/wallet/recharge",

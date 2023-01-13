@@ -9,8 +9,9 @@ const userSchema = mongoose.Schema(
     phone: { type: Number, required: true, unique: true },
     dob: { type: String, required: true },
     country: { type: String, required: true },
-    city: { type: String, required: true },
+    state: { type: String, required: true },
     password: { type: String, required: true },
+    set_pass: { type: String },
   },
   { timestamps: true }
 );

@@ -6,6 +6,7 @@ const Ticket = require("../Models/Admin/Ticket");
 const fs = require("fs");
 const path = require("path");
 const d = new Date();
+const UserEmail = require("../Controllers/Email/PasswordReset");
 exports.signup = (req, res, next) => {
   //
   console.log(req.body);
@@ -17,7 +18,7 @@ exports.signup = (req, res, next) => {
       phone: req.body.phone,
       dob: req.body.dob,
       country: req.body.country,
-      city: req.body.city,
+      state: req.body.state,
       password: hash,
     });
     user
@@ -59,7 +60,15 @@ exports.login = (req, res, next) => {
             expiresIn: "2h",
           });
           res.status(200).json({
-            userId: user,
+            user_details: {
+              first_name: user.first_name,
+              last_name: user.last_name,
+              email: user.email,
+              phone: user.phone,
+              dob: user.dob,
+              country: user.country,
+              city: user.city,
+            },
             token: token,
           });
         })
@@ -75,55 +84,53 @@ exports.login = (req, res, next) => {
     });
 };
 
+// This function send link to email to set new password
 exports.forgetPassword = (req, res, next) => {
-  console.log(req.body);
-
+  // console.log(req.body);
   User.findOne({ email: req.body.email })
     .then((user) => {
-      const token = jwt.sign({ userId: user.email }, "RANDOM_TOKEN_SECRET", {
-        expiresIn: "1h",
-      });
-      res.status(200).json({
-        name: user.first_name + " " + user.last_name,
-        user: user.email,
-        token: token,
+      const token = jwt.sign(
+        { email_user: user.email },
+        "RANDOM_TOKEN_SECRET",
+        {
+          expiresIn: Math.floor(Date.now() / 1000) + 5 * 60,
+        }
+      );
+      UserEmail.UserPasswordEmailNotification(user.email, token);
+      User.findOneAndUpdate(
+        { email: user.email },
+        { set_pass: token },
+        { new: true }
+      ).then(() => {
+        res.status(200).json({
+          name: user.first_name + " " + user.last_name,
+          user: user.email,
+          token: token,
+        });
       });
     })
     .catch((err) => {
-      err;
+      res.status(200).json({ error: "Email not found!" });
     });
 };
 
-exports.newPasswordByEmail = (req, res, next) => {
-  console.log("New Password Set route (Email)" + d);
-  var transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false, // true for 587, false for other ports
-    requireTLS: true,
-    auth: {
-      user: "kotai.workalert@gmail.com",
-      pass: "tnnzqsjryiizdncp",
-    },
+exports.newPasswordByEmailForm = (req, res, next) => {
+  const decoded = jwt.verify(req.params.token, "RANDOM_TOKEN_SECRET");
+  const email = decoded.email_user;
+
+  // check set_pass status
+  User.findOne({ email: email }).then((resp) => {
+    console.log(resp);
+    res.locals.email = resp.email;
+    res.locals.name = resp.first_name + " " + res.last_name;
+    res.sendFile(path.join(__dirname, "../Views", "setPass.html"));
   });
 
-  var mailOptions = {
-    from: '"📧 Lottery App 👻" <kotai.workalert@gmail.com>',
-    to: "satyajit@kotaielectronics.com",
-    subject: "✅ Mail sent using Node.js",
-    text: "That was easy!",
-  };
+  // res.status(200).json("Form");
+};
 
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Email sent: " + info.response);
-      res.status(200).send({
-        message: "Email sent: " + info.response,
-      });
-    }
-  });
+exports.newPasswordSave = (req, res, next) => {
+  console.log(req);
 };
 
 exports.allTickets = (req, res, next) => {

@@ -5,7 +5,9 @@ const countries_cities = require("../Controllers/CountriesCitiesController");
 
 router.get("/setting/config", configCtrl.getSettingConfig);
 
-router.get("/countries", countries_cities.countries);
+router
+  .get("/countries", countries_cities.countries)
+  .post("/countries", countries_cities.countries);
 router.get("/state/:id", countries_cities.state);
 
 module.exports = router;

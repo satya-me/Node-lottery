@@ -1,0 +1,95 @@
+[{
+  "_id": {
+    "$oid": "63b3faafd83b9fa47efabe06"
+  },
+  "first_name": "Satya",
+  "last_name": "Barik",
+  "email": "satyajit@kotaielectronics.com",
+  "phone": {
+    "$numberLong": "9658730362"
+  },
+  "dob": "20-20-2000",
+  "country": "India",
+  "city": "Kolkata",
+  "password": "$2b$10$ckfZDG64xx6O48K9JKw.B.Y7rwO./1GiaqJFlkzsKRnQpPEzXcGc6",
+  "__v": 0,
+  "set_pass": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbF91c2VyIjoic2F0eWFqaXRAa290YWllbGVjdHJvbmljcy5jb20iLCJpYXQiOjE2NzM2MDM4MTAsImV4cCI6MzM0NzIwNzkyMH0.kcKMzDy4MP9797YzYthzwQa-6RHh5ZMxwgECYrPf0oA",
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673603810854"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "63c11f233d524b742b2772a7"
+  },
+  "first_name": "Saiyaka",
+  "last_name": "Barik",
+  "email": "saiyaka00@gmail.com",
+  "phone": {
+    "$numberLong": "9658630363"
+  },
+  "dob": "20-20-2000",
+  "country": "India",
+  "state": "Kolkata",
+  "password": "$2b$10$Xa8OurmdF4CzQgaYgtrstuyfBB6F0./FqjdCl0t7yozgp8f7NEWAC",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673600803684"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673600803684"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c11fe68a3a9e4a13c48aa3"
+  },
+  "first_name": "Chandan",
+  "last_name": "Panda",
+  "email": "person13454@gmail.com",
+  "phone": 977341260,
+  "dob": "2015-01-01",
+  "country": "Ecuador",
+  "state": "Napo",
+  "password": "$2b$10$uFr8amMUO9aUyr.3qDfhKetuWexA54Lxhio3Aiguw1dRDhvNeIk0a",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673600998276"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673600998276"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63c128732a312feea970ad79"
+  },
+  "first_name": "Surajit",
+  "last_name": "Pal",
+  "email": "surajit@gmail.com",
+  "phone": {
+    "$numberLong": "9876543210"
+  },
+  "dob": "2019-01-01",
+  "country": "Belgium",
+  "state": "Limburg",
+  "password": "$2b$10$sLj66cps4J5wHNC8QgBscuBQF938GZHbmwxXAE97NOjAT1k2Rkfz6",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1673603187570"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1673603187570"
+    }
+  },
+  "__v": 0
+}]
