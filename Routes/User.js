@@ -1,15 +1,18 @@
 const express = require("express");
+const multer = require("../Middleware/Multer");
 const router = express.Router();
 const auth = require("../Middleware/AuthUser");
 const userCtrl = require("../Controllers/UserController");
 const accountCtrl = require("../Controllers/AccountController");
-const multer = require("../Middleware/Multer");
+const cart = require("../Controllers/CartController");
 
 router.post("/signup", userCtrl.signup);
 router.post("/login", userCtrl.login);
 router.post("/forget", userCtrl.forgetPassword); //enter email
-router.get("/new-password/:token", userCtrl.newPasswordByEmailForm); 
-router.post("/new-password/save", userCtrl.newPasswordSave); 
+router.post("/new-password/save", userCtrl.newPasswordSave);
+
+// this route called from email
+router.get("/new-password/:token", userCtrl.newPasswordByEmailForm);
 
 router.post(
   "/wallet/recharge",
@@ -18,5 +21,12 @@ router.post(
   accountCtrl.recharge
 );
 router.get("/account/wallet/balance", auth, accountCtrl.balance);
+router.post(
+  "/add-cart",
+  multer.singleImageUpload.single("photos"),
+  auth,
+  cart.addCart
+);
+router.get("/cart/:user_id", auth, cart.getCart);
 
 module.exports = router;

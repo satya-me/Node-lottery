@@ -8,5 +8,14 @@ exports.multiFileUpload = (req, res, next) => {
       .json({ file_error: req.fileValidationError, file_success: req.files });
 
   if (!req.fileValidationError)
-    res.status(200).json({ status: "All file push to the server!", file: req.files, body: req.body });
+    res.status(200).json({
+      status: "All file push to the server!",
+      file: req.files,
+      body: req.body,
+    });
+};
+
+exports.view = (req, res) => {
+  console.log(132);
+  res.render('test', {name: 'Satya', color: 'blue'});
 };

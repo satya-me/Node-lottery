@@ -8,7 +8,7 @@ const { singleImageUpload, multipleImageUpload } = require('../Middleware/multer
 router.post("/files_upload", singleImageUpload.single("photo"), testCtrl.multiFileUpload);
 router.post("/files_uploads", multipleImageUpload.array("photos", 10), testCtrl.multiFileUpload);
 
-
+router.get('/view', testCtrl.view);
 
 
 module.exports = router;

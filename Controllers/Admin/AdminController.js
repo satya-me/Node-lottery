@@ -3,8 +3,10 @@ const jwt = require("jsonwebtoken");
 var nodemailer = require("nodemailer");
 const Admin = require("../../Models/Admin/Admin");
 const Ticket = require("../../Models/Admin/Ticket");
+const Category = require("../../Models/Category");
 const fs = require("fs");
 const path = require("path");
+const { find } = require("../../Models/Admin/Admin");
 const d = new Date();
 
 exports.signup = (req, res, next) => {
@@ -57,7 +59,7 @@ exports.login = (req, res, next) => {
             });
           }
           const token = jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", {
-            expiresIn: "24h",
+            expiresIn: "48h",
           });
           res.status(200).json({
             userId: user,
@@ -77,37 +79,88 @@ exports.login = (req, res, next) => {
 };
 
 exports.addTicket = (req, res, next) => {
-  console.log({ file: req.files, body: req.body });
-  res.status(201).json(req.files)
-  // const ticket = new Ticket({
-  //   ticket_name: req.body.ticket_name,
-  //   ticket_price: req.body.ticket_price,
-  //   currency: req.body.currency,
-  //   ticket_quantity: req.body.ticket_quantity,
-  //   time_left: req.body.time_left,
-  //   main_image: req.body.main_image,
-  //   list_image: req.body.list_image,
-  //   description: req.body.description,
-  //   status: req.body.status,
-  //   is_promo: req.body.is_promo,
-  //   flag: req.body.flag,
-  //   category: req.body.category,
-  //   brand: req.body.brand,
-  // });
-  // ticket
-  //   .save()
-  //   .then((back) => {
-  //     res.status(201).json({
-  //       message: "Ticket created successfully!",
-  //       info: {
-  //         id: back._id,
-  //         name: back.ticket_name,
-  //       },
-  //     });
-  //   })
-  //   .catch((err) => {
-  //     res.status(500).json({
-  //       error: err,
-  //     });
-  //   });
+  // console.log(req.files.image);
+  const feature = [];
+  if (req.body.specifications_key) {
+    for (let i = 0; i < req.body.specifications_key.length; i++) {
+      feature.push({
+        key: req.body.specifications_key[i],
+        value: req.body.specifications_value[i],
+      });
+    }
+  }
+  const ticket = new Ticket({
+    ticket_name: req.body.ticket_name,
+    ticket_price: req.body.ticket_price,
+    discount_percentage: req.body.discount_percentage,
+    currency: req.body.currency,
+    ticket_quantity: req.body.ticket_quantity,
+    time_left: req.body.time_left,
+    main_image:
+      req.files.image[0].destination + "/" + req.files.image[0].filename,
+
+    description: req.body.description,
+    // specification: req.body.key_feature,
+    highlights: req.body.highlights,
+    specification: feature,
+    // key: req.body.features_key, value: req.body.features_value
+
+    status: req.body.status,
+    is_promo: Boolean(req.body.is_promo),
+    flag: Boolean(req.body.flag),
+    category: req.body.category,
+    brand: req.body.brand,
+  });
+
+  ticket
+    .save()
+    .then((back) => {
+      res.status(201).json({
+        message: "Ticket created successfully!",
+        info: {
+          id: back._id,
+          name: back.ticket_name,
+        },
+      });
+    })
+    .catch((err) => {
+      res.status(500).json({
+        error: err,
+      });
+    });
+};
+
+exports.addCategory = (req, res, next) => {
+  const category = new Category({
+    name: req.body.name,
+    image: req.files.image[0].destination + "/" + req.files.image[0].filename,
+  });
+  category
+    .save()
+    .then((resp) => {
+      res.status(201).json(resp);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+  //
+};
+
+exports.getCategory = (req, res, next) => {
+  Category.find({})
+    .then((resp) => {
+      const url = req.protocol + "://" + req.get("host");
+
+      const modifiedResponse = resp.map((category) => {
+        return {
+          ...category._doc,
+          image: `${url}/${category.image}`,
+          status: true,
+        };
+      });
+      res.status(200).json(modifiedResponse);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
 };

@@ -1,14 +1,15 @@
 const express = require("express");
 require("dotenv").config();
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const ticketRoutes = require("./Routes/ticket");
 const userRoutes = require("./Routes/User");
 const adminRoutes = require("./Routes/Admin/Admin");
 const testRoutes = require("./Routes/Test");
 const configRoutes = require("./Routes/Config");
 const path = require("path");
+const bodyParser = require("body-parser");
 const cors = require("cors");
+
 
 mongoose.set("strictQuery", true);
 mongoose
@@ -22,10 +23,13 @@ mongoose
   });
 
 const app = express();
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'Views'));
+
 app.use(cors());
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/images", express.static(path.join(__dirname, "images")));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/public", express.static(path.join(__dirname, "public")));
 
 // User routes
 app.use("/api/auth", userRoutes);

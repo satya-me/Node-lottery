@@ -25,8 +25,6 @@ exports.UserPasswordEmailNotification = (req, token) => {
     html:
       '<a href="' +
       process.env.HOST +
-      ":" +
-      process.env.PORT +
       "/api/auth/new-password/" +
       token +
       '">Set new password!</a>',
