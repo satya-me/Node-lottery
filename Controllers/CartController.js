@@ -66,3 +66,7 @@ exports.getCart = (req, res, next) => {
   }
   //
 };
+
+exports.deleteCart = (req, res) => {
+  //
+};
