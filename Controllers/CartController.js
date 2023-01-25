@@ -48,18 +48,22 @@ exports.getCart = (req, res, next) => {
   // console.log(decoded.userId, req.params.user_id);
   if (decoded.userId === req.params.user_id) {
     Cart.find({ user_id: req.params.user_id }).then((resp) => {
-      let pids = resp.map((item) => item.product_id);
-
-      Ticket.find(
-        {
-          _id: {
-            $in: pids,
-          },
-        },
-        function (err, docs) {
-          res.status(200).json(docs);
-        }
-      );
+      let pidsPromises = resp.map((item) => {
+        return Ticket.find({ _id: item.product_id });
+      });
+      Promise.all(pidsPromises)
+        .then((pids) => {
+          let finalResult = resp.map((r, index) => {
+            return {
+              resp: r,
+              info: pids[index],
+            };
+          });
+          res.status(200).json(finalResult);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     });
   } else {
     res.status(401).json("Authorization failed");
@@ -67,6 +71,29 @@ exports.getCart = (req, res, next) => {
   //
 };
 
+exports.updateCart = (req, res) => {
+  //
+  res.status(200).json(req.params);
+};
+
 exports.deleteCart = (req, res) => {
+  //
+  // console.log(req.params);
+  const id = req.params.ticket_id;
+  Cart.findOne({ _id: id }).then((isCart) => {
+    console.log(isCart);
+    if (isCart === null) {
+      res.status(500).json("Item not found!");
+      // return;
+    } else {
+      Cart.deleteOne({ _id: id })
+        .then((resp) => {
+          res.status(500).json("One item removed!");
+        })
+        .catch((err) => {
+          res.status(500).json(err);
+        });
+    }
+  });
   //
 };

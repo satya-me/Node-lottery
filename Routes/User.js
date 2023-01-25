@@ -29,6 +29,8 @@ router.post(
 );
 router.get("/cart/:user_id", auth, cart.getCart);
 
-router.get("/cart/delete/:ticket_id", auth, cart.getCart);
+router.post("/cart/delete/:ticket_id", auth, cart.deleteCart);
+
+router.post("/cart/qt_update/:ticket_id/:quantity", auth, cart.updateCart);
 
 module.exports = router;
