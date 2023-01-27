@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="sdk">
+        <h1>SDK SEAMLESS</h1>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+</body>
+<script>
+    function checkout(params) {
+
+        const apiKey = '102219127563b7f7c53a41e9';
+        const siteId = '126127';
+        const amount = '23';
+        const orderId = '64sd4sf';
+        const transId = Math.floor(Math.random() * 100000000).toString();
+        const notifyUrl = 'http://localhost/notify.html';
+
+        const body = `cpm_site_id=${siteId}&cpm_amount=${amount}&cpm_trans_id=${transId}&cpm_custom=${orderId}&cpm_notify_url=${notifyUrl}&cpm_currency=CFA&cpm_payment_config=SINGLE&cpm_page_action=PAYMENT&cpm_version=V2&cpm_language=fr`;
+
+        fetch('https://sandbox.cinetpay.com/v1/transaction/init', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: body
+        })
+            .then(response => response.json())
+            .then(json => {
+                const paymentUrl = json.payment_url;
+                console.log(paymentUrl);
+            })
+            .catch(error => console.log(error));
+
+    }
+</script>
+
+</html>
