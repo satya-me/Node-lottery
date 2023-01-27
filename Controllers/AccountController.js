@@ -3,11 +3,21 @@ const Transaction = require("../Models/Transaction");
 const { response } = require("../app");
 
 exports.balance = (req, res, next) => {
-  //   console.log(req.auth);
+  console.log("Auth", req.auth);
   Wallet.findOne({ user_id: req.auth.userId })
     .then((response) => {
       //   console.log(response);
-      res.status(200).json(response);
+      if (response == null) {
+        res.status(200).json({
+          user_id: req.auth.userId,
+          balance: null,
+        });
+      } else {
+        res.status(200).json({
+          user_id: req.auth.userId,
+          balance: response.balance,
+        });
+      }
     })
     .catch((error) => {
       res.status(200).json(error);
@@ -19,10 +29,12 @@ exports.balance = (req, res, next) => {
 exports.recharge = (req, res, next) => {
   Wallet.findOne({ id: req.auth.userId })
     .then((r) => {
+      const txn_id = "";
       if (r) {
         const has_bal = r.balance;
         const req_bal = +req.body.balance; // you can use the + operator to convert a string to a number.
         const total_bal = has_bal + req_bal;
+
         // console.log(total_bal);
         Wallet.findOneAndUpdate(
           { user_id: req.auth.userId },
@@ -34,13 +46,14 @@ exports.recharge = (req, res, next) => {
               req.auth.userId,
               update._id,
               "Recharge",
-              req.body.balance
+              req.body.balance,
+              txn_id
             )
               .then((response) => {
                 console.log(response);
                 res.status(201).json({
                   user_id: req.auth.userId,
-                  txn_id: response._id,
+                  // txn_id: response._id,
                   recharge_amount: req.body.balance,
                   total_balance: total_bal,
                 });
@@ -67,13 +80,14 @@ exports.recharge = (req, res, next) => {
               req.auth.userId,
               save._id,
               "Recharge",
-              req.body.balance
+              req.body.balance,
+              txn_id
             )
               .then((response) => {
                 console.log(response);
                 res.status(201).json({
                   user_id: req.auth.userId,
-                  txn_id: response._id,
+                  // txn_id: response._id,
                   recharge_amount: req.body.balance,
                   total_balance: req.body.balance,
                 });
@@ -92,12 +106,13 @@ exports.recharge = (req, res, next) => {
     });
 };
 
-exports.transaction = (fs, se, th, fr) => {
+exports.transaction = (fs, se, th, fr, txn_id) => {
   return new Transaction({
     user_id: fs,
     wallet_id: se,
     type: th,
     type_value: fr,
+    transaction_id: txn_id,
   })
     .save()
     .then((tran) => {

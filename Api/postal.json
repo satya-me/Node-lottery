@@ -1,0 +1,1514 @@
+[
+  {
+    "Country": "Afghanistan",
+    "ISO": "AF",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Åland Islands",
+    "ISO": "AX",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Albania",
+    "ISO": "AL",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Algeria",
+    "ISO": "DZ",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "American Samoa",
+    "ISO": "AS",
+    "Format": "NNNNN (optionally NNNNN-NNNN or NNNNN-NNNNNN)",
+    "Regex": "^d{5}(-{1}d{4,6})$"
+  },
+  {
+    "Country": "Andorra",
+    "ISO": "AD",
+    "Format": "CCNNN",
+    "Regex": "^[Aa][Dd]d{3}$"
+  },
+  {
+    "Country": "Angola",
+    "ISO": "AO",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Anguilla",
+    "ISO": "AI",
+    "Format": "AI-2640",
+    "Regex": "^[Aa][I][-][2][6][4][0]$"
+  },
+  {
+    "Country": "Antigua and Barbuda",
+    "ISO": "AG",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Argentina",
+    "ISO": "AR",
+    "Format": "1974-1998 NNNN; From 1999 ANNNNAAA",
+    "Regex": "^d{4}|[A-Za-z]d{4}[a-zA-Z]{3}$"
+  },
+  {
+    "Country": "Armenia",
+    "ISO": "AM",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Aruba",
+    "ISO": "AW",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Ascension island",
+    "ISO": "AC",
+    "Format": "AAAANAA one code: ASCN 1ZZ",
+    "Regex": "^[Aa][Ss][Cc][Nn]s{0,1}[1][Zz][Zz]$"
+  },
+  {
+    "Country": "Australia",
+    "ISO": "AU",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Austria",
+    "ISO": "AT",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Azerbaijan",
+    "ISO": "AZ",
+    "Format": "CCNNNN",
+    "Regex": "^[Aa][Zz]d{4}$"
+  },
+  {
+    "Country": "Bahamas",
+    "ISO": "BS",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Bahrain",
+    "ISO": "BH",
+    "Format": "NNN or NNNN",
+    "Regex": "^d{3,4}$"
+  },
+  {
+    "Country": "Bangladesh",
+    "ISO": "BD",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Barbados",
+    "ISO": "BB",
+    "Format": "CCNNNNN",
+    "Regex": "^[Aa][Zz]d{5}$"
+  },
+  {
+    "Country": "Belarus",
+    "ISO": "BY",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Belgium",
+    "ISO": "BE",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Belize",
+    "ISO": "BZ",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Benin",
+    "ISO": "BJ",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Bermuda",
+    "ISO": "BM",
+    "Format": "AA NN or AA AA",
+    "Regex": "^[A-Za-z]{2}s([A-Za-z]{2}|d{2})$"
+  },
+  {
+    "Country": "Bhutan",
+    "ISO": "BT",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Bolivia",
+    "ISO": "BO",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Bonaire, Sint Eustatius and Saba",
+    "ISO": "BQ",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Bosnia and Herzegovina",
+    "ISO": "BA",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Botswana",
+    "ISO": "BW",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Brazil",
+    "ISO": "BR",
+    "Format": "NNNNN-NNN (NNNNN from 1971 to 1992)",
+    "Regex": "^d{5}-d{3}$"
+  },
+  {
+    "Country": "British Antarctic Territory",
+    "ISO": "",
+    "Format": "BIQQ 1ZZ",
+    "Regex": "^[Bb][Ii][Qq]{2}s{0,1}[1][Zz]{2}$"
+  },
+  {
+    "Country": "British Indian Ocean Territory",
+    "ISO": "IO",
+    "Format": "AAAANAA one code: BBND 1ZZ",
+    "Regex": "^[Bb]{2}[Nn][Dd]s{0,1}[1][Zz]{2}$"
+  },
+  {
+    "Country": "British Virgin Islands",
+    "ISO": "VG",
+    "Format": "CCNNNN",
+    "Regex": "^[Vv][Gg]d{4}$"
+  },
+  {
+    "Country": "Brunei",
+    "ISO": "BN",
+    "Format": "AANNNN",
+    "Regex": "^[A-Za-z]{2}d{4}$"
+  },
+  {
+    "Country": "Bulgaria",
+    "ISO": "BG",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Burkina Faso",
+    "ISO": "BF",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Burundi",
+    "ISO": "BI",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Cambodia",
+    "ISO": "KH",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Cameroon",
+    "ISO": "CM",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Canada",
+    "ISO": "CA",
+    "Format": "ANA NAN",
+    "Regex": "^(?=[^DdFfIiOoQqUuds])[A-Za-z]d(?=[^DdFfIiOoQqUuds])[A-Za-z]s{0,1}d(?=[^DdFfIiOoQqUuds])[A-Za-z]d$"
+  },
+  {
+    "Country": "Cape Verde",
+    "ISO": "CV",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Cayman Islands",
+    "ISO": "KY",
+    "Format": "CCN-NNNN",
+    "Regex": "^[Kk][Yy]d[-s]{0,1}d{4}$"
+  },
+  {
+    "Country": "Central African Republic",
+    "ISO": "CF",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Chad",
+    "ISO": "TD",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Chile",
+    "ISO": "CL",
+    "Format": "NNNNNNN (NNN-NNNN)",
+    "Regex": "^d{7}s(d{3}-d{4})$"
+  },
+  {
+    "Country": "China",
+    "ISO": "CN",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Christmas Island",
+    "ISO": "CX",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Cocos (Keeling) Island",
+    "ISO": "CC",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Colombia",
+    "ISO": "CO",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Comoros",
+    "ISO": "KM",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Congo (Brazzaville)",
+    "ISO": "CG",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Congo, Democratic Republic",
+    "ISO": "CD",
+    "Format": "- no codes -",
+    "Regex": "^[Cc][Dd]$"
+  },
+  {
+    "Country": "Cook Islands",
+    "ISO": "CK",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Costa Rica",
+    "ISO": "CR",
+    "Format": "NNNNN (NNNN until 2007)",
+    "Regex": "^d{4,5}$"
+  },
+  {
+    "Country": "Côte d'Ivoire (Ivory Coast)",
+    "ISO": "CI",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Croatia",
+    "ISO": "HR",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Cuba",
+    "ISO": "CU",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Curaçao",
+    "ISO": "CW",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Cyprus",
+    "ISO": "CY",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Czech Republic",
+    "ISO": "CZ",
+    "Format": "NNNNN (NNN NN)",
+    "Regex": "^d{5}s(d{3}sd{2})$"
+  },
+  {
+    "Country": "Denmark",
+    "ISO": "DK",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Djibouti",
+    "ISO": "DJ",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Dominica",
+    "ISO": "DM",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Dominican Republic",
+    "ISO": "DO",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "East Timor",
+    "ISO": "TL",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Ecuador",
+    "ISO": "EC",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "El Salvador",
+    "ISO": "SV",
+    "Format": "1101",
+    "Regex": "^1101$"
+  },
+  {
+    "Country": "Egypt",
+    "ISO": "EG",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Equatorial Guinea",
+    "ISO": "GQ",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Eritrea",
+    "ISO": "ER",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Estonia",
+    "ISO": "EE",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Ethiopia",
+    "ISO": "ET",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Falkland Islands",
+    "ISO": "FK",
+    "Format": "AAAANAA one code: FIQQ 1ZZ",
+    "Regex": "^[Ff][Ii][Qq]{2}s{0,1}[1][Zz]{2}$"
+  },
+  {
+    "Country": "Faroe Islands",
+    "ISO": "FO",
+    "Format": "NNN",
+    "Regex": "^d{3}$"
+  },
+  {
+    "Country": "Fiji",
+    "ISO": "FJ",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Finland",
+    "ISO": "FI",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "France",
+    "ISO": "FR",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "French Guiana",
+    "ISO": "GF",
+    "Format": "973NN",
+    "Regex": "^973d{2}$"
+  },
+  {
+    "Country": "French Polynesia",
+    "ISO": "PF",
+    "Format": "987NN",
+    "Regex": "^987d{2}$"
+  },
+  {
+    "Country": "French Southern and Antarctic Territories",
+    "ISO": "TF",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Gabon",
+    "ISO": "GA",
+    "Format": "NN [city name] NN",
+    "Regex": "^d{2}s[a-zA-Z-_ ]sd{2}$"
+  },
+  {
+    "Country": "Gambia",
+    "ISO": "GM",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Georgia",
+    "ISO": "GE",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Germany",
+    "ISO": "DE",
+    "Format": "NN",
+    "Regex": "^d{2}$"
+  },
+  {
+    "Country": "Germany",
+    "ISO": "DE",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Germany",
+    "ISO": "DE",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Ghana",
+    "ISO": "GH",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Gibraltar",
+    "ISO": "GI",
+    "Format": "GX11 1AA",
+    "Regex": "^[Gg][Xx][1]{2}s{0,1}[1][Aa]{2}$"
+  },
+  {
+    "Country": "Greece",
+    "ISO": "GR",
+    "Format": "NNN NN",
+    "Regex": "^d{3}s{0,1}d{2}$"
+  },
+  {
+    "Country": "Greenland",
+    "ISO": "GL",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Grenada",
+    "ISO": "GD",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Guadeloupe",
+    "ISO": "GP",
+    "Format": "971NN",
+    "Regex": "^971d{2}$"
+  },
+  {
+    "Country": "Guam",
+    "ISO": "GU",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Guatemala",
+    "ISO": "GT",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Guernsey",
+    "ISO": "GG",
+    "Format": "AAN NAA, AANN NAA",
+    "Regex": "^[A-Za-z]{2}ds{0,1}d[A-Za-z]{2}$"
+  },
+  {
+    "Country": "Guinea",
+    "ISO": "GN",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Guinea Bissau",
+    "ISO": "GW",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Guyana",
+    "ISO": "GY",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Haiti",
+    "ISO": "HT",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Heard and McDonald Islands",
+    "ISO": "HM",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Honduras",
+    "ISO": "HN",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Hong Kong",
+    "ISO": "HK",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Hungary",
+    "ISO": "HU",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Iceland",
+    "ISO": "IS",
+    "Format": "NNN",
+    "Regex": "^d{3}$"
+  },
+  {
+    "Country": "India",
+    "ISO": "IN",
+    "Format": "NNNNNN,&#10;NNN NNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Indonesia",
+    "ISO": "ID",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Iran",
+    "ISO": "IR",
+    "Format": "NNNNN-NNNNN",
+    "Regex": "^d{5}-d{5}$"
+  },
+  {
+    "Country": "Iraq",
+    "ISO": "IQ",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Ireland",
+    "ISO": "IE",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Isle of Man",
+    "ISO": "IM",
+    "Format": "CCN NAA, CCNN NAA",
+    "Regex": "^[Ii[Mm]d{1,2}sd[A-Z]{2}$"
+  },
+  {
+    "Country": "Israel",
+    "ISO": "IL",
+    "Format": "NNNNNNN, NNNNN",
+    "Regex": "^\bd{5}(d{2})?$"
+  },
+  {
+    "Country": "Italy",
+    "ISO": "IT",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Jamaica",
+    "ISO": "JM",
+    "Format": "Before suspension: CCAAANN &#10;After suspension: NN",
+    "Regex": "^d{2}$"
+  },
+  {
+    "Country": "Japan",
+    "ISO": "JP",
+    "Format": "NNNNNNN (NNN-NNNN)",
+    "Regex": "^d{7}s(d{3}-d{4})$"
+  },
+  {
+    "Country": "Jersey",
+    "ISO": "JE",
+    "Format": "CCN NAA",
+    "Regex": "^[Jj][Ee]ds{0,1}d[A-Za-z]{2}$"
+  },
+  {
+    "Country": "Jordan",
+    "ISO": "JO",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Kazakhstan",
+    "ISO": "KZ",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Kenya",
+    "ISO": "KE",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Kiribati",
+    "ISO": "KI",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Korea, North",
+    "ISO": "KP",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Korea, South",
+    "ISO": "KR",
+    "Format": "NNNNNN (NNN-NNN)(1988~2015)",
+    "Regex": "^d{6}s(d{3}-d{3})$"
+  },
+  {
+    "Country": "Kosovo",
+    "ISO": "XK",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Kuwait",
+    "ISO": "KW",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Kyrgyzstan",
+    "ISO": "KG",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Latvia",
+    "ISO": "LV",
+    "Format": "LV-NNNN",
+    "Regex": "^[Ll][Vv][- ]{0,1}d{4}$"
+  },
+  {
+    "Country": "Laos",
+    "ISO": "LA",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Lebanon",
+    "ISO": "LB",
+    "Format": "NNNN NNNN",
+    "Regex": "^d{4}s{0,1}d{4}$"
+  },
+  {
+    "Country": "Lesotho",
+    "ISO": "LS",
+    "Format": "NNN",
+    "Regex": "^d{3}$"
+  },
+  {
+    "Country": "Liberia",
+    "ISO": "LR",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Libya",
+    "ISO": "LY",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Liechtenstein",
+    "ISO": "LI",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Lithuania",
+    "ISO": "LT",
+    "Format": "LT-NNNNN",
+    "Regex": "^[Ll][Tt][- ]{0,1}d{5}$"
+  },
+  {
+    "Country": "Luxembourg",
+    "ISO": "LU",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Macau",
+    "ISO": "MO",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Macedonia",
+    "ISO": "MK",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Madagascar",
+    "ISO": "MG",
+    "Format": "NNN",
+    "Regex": "^d{3}$"
+  },
+  {
+    "Country": "Malawi",
+    "ISO": "MW",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Maldives",
+    "ISO": "MV",
+    "Format": "NNNN, NNNNN",
+    "Regex": "^d{4,5}$"
+  },
+  {
+    "Country": "Malaysia",
+    "ISO": "MY",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Mali",
+    "ISO": "ML",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Malta",
+    "ISO": "MT",
+    "Format": "AAANNNN (AAA NNNN)",
+    "Regex": "^[A-Za-z]{3}s{0,1}d{4}$"
+  },
+  {
+    "Country": "Marshall Islands",
+    "ISO": "MH",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Mauritania",
+    "ISO": "MR",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Mauritius",
+    "ISO": "MU",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Martinique",
+    "ISO": "MQ",
+    "Format": "972NN",
+    "Regex": "^972d{2}$"
+  },
+  {
+    "Country": "Mayotte",
+    "ISO": "YT",
+    "Format": "976NN",
+    "Regex": "^976d{2}$"
+  },
+  {
+    "Country": "Micronesia",
+    "ISO": "FM",
+    "Format": "NNNNN or NNNNN-NNNN",
+    "Regex": "^d{5}(-{1}d{4})$"
+  },
+  {
+    "Country": "Mexico",
+    "ISO": "MX",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Micronesia",
+    "ISO": "FM",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Moldova",
+    "ISO": "MD",
+    "Format": "CCNNNN (CC-NNNN)",
+    "Regex": "^[Mm][Dd][- ]{0,1}d{4}$"
+  },
+  {
+    "Country": "Monaco",
+    "ISO": "MC",
+    "Format": "980NN",
+    "Regex": "^980d{2}$"
+  },
+  {
+    "Country": "Mongolia",
+    "ISO": "MN",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Montenegro",
+    "ISO": "ME",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Montserrat",
+    "ISO": "MS",
+    "Format": "MSR 1110-1350",
+    "Regex": "^[Mm][Ss][Rr]s{0,1}d{4}$"
+  },
+  {
+    "Country": "Morocco",
+    "ISO": "MA",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Mozambique",
+    "ISO": "MZ",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Myanmar",
+    "ISO": "MM",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Namibia",
+    "ISO": "NA",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Nauru",
+    "ISO": "NR",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Nepal",
+    "ISO": "NP",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Netherlands",
+    "ISO": "NL",
+    "Format": "NNNN AA",
+    "Regex": "^d{4}s{0,1}[A-Za-z]{2}$"
+  },
+  {
+    "Country": "New Caledonia",
+    "ISO": "NC",
+    "Format": "988NN",
+    "Regex": "^988d{2}$"
+  },
+  {
+    "Country": "New Zealand",
+    "ISO": "NZ",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Nicaragua",
+    "ISO": "NI",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Niger",
+    "ISO": "NE",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Nigeria",
+    "ISO": "NG",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Niue",
+    "ISO": "NU",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Norfolk Island",
+    "ISO": "NF",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Northern Mariana Islands",
+    "ISO": "MP",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Norway",
+    "ISO": "NO",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Oman",
+    "ISO": "OM",
+    "Format": "NNN",
+    "Regex": "^d{3}$"
+  },
+  {
+    "Country": "Pakistan",
+    "ISO": "PK",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Palau",
+    "ISO": "PW",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Panama",
+    "ISO": "PA",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Papua New Guinea",
+    "ISO": "PG",
+    "Format": "NNN",
+    "Regex": "^d{3}$"
+  },
+  {
+    "Country": "Paraguay",
+    "ISO": "PY",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Peru",
+    "ISO": "PE",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Philippines",
+    "ISO": "PH",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Pitcairn Islands",
+    "ISO": "PN",
+    "Format": "AAAANAA one code: PCRN 1ZZ",
+    "Regex": "^[Pp][Cc][Rr][Nn]s{0,1}[1][Zz]{2}$"
+  },
+  {
+    "Country": "Poland",
+    "ISO": "PL",
+    "Format": "NNNNN (NN-NNN)",
+    "Regex": "^d{2}[- ]{0,1}d{3}$"
+  },
+  {
+    "Country": "Portugal",
+    "ISO": "PT",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Portugal",
+    "ISO": "PT",
+    "Format": "NNNN-NNN (NNNN NNN)",
+    "Regex": "^d{4}[- ]{0,1}d{3}$"
+  },
+  {
+    "Country": "Puerto Rico",
+    "ISO": "PR",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Qatar",
+    "ISO": "QA",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Réunion",
+    "ISO": "RE",
+    "Format": "974NN",
+    "Regex": "^974d{2}$"
+  },
+  {
+    "Country": "Romania",
+    "ISO": "RO",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Russia",
+    "ISO": "RU",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Saint Barthélemy",
+    "ISO": "BL",
+    "Format": "97133",
+    "Regex": "^97133$"
+  },
+  {
+    "Country": "Saint Helena",
+    "ISO": "SH",
+    "Format": "STHL 1ZZ",
+    "Regex": "^[Ss][Tt][Hh][Ll]s{0,1}[1][Zz]{2}$"
+  },
+  {
+    "Country": "Saint Kitts and Nevis",
+    "ISO": "KN",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Saint Lucia",
+    "ISO": "LC",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Saint Martin",
+    "ISO": "MF",
+    "Format": "97150",
+    "Regex": "^97150$"
+  },
+  {
+    "Country": "Saint Pierre and Miquelon",
+    "ISO": "PM",
+    "Format": "97500",
+    "Regex": "^97500$"
+  },
+  {
+    "Country": "Saint Vincent and the Grenadines",
+    "ISO": "VC",
+    "Format": "CCNNNN",
+    "Regex": "^[Vv][Cc]d{4}$"
+  },
+  {
+    "Country": "San Marino",
+    "ISO": "SM",
+    "Format": "4789N",
+    "Regex": "^4789d$"
+  },
+  {
+    "Country": "Sao Tome and Principe",
+    "ISO": "ST",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Saudi Arabia",
+    "ISO": "SA",
+    "Format": "NNNNN for PO Boxes. NNNNN-NNNN for home delivery.",
+    "Regex": "^d{5}(-{1}d{4})?$"
+  },
+  {
+    "Country": "Senegal",
+    "ISO": "SN",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Serbia",
+    "ISO": "RS",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Serbia",
+    "ISO": "RS",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Seychelles",
+    "ISO": "SC",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Sint Maarten",
+    "ISO": "SX",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Sierra Leone",
+    "ISO": "SL",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Singapore",
+    "ISO": "SG",
+    "Format": "NN",
+    "Regex": "^d{2}$"
+  },
+  {
+    "Country": "Singapore",
+    "ISO": "SG",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Singapore",
+    "ISO": "SG",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Slovakia",
+    "ISO": "SK",
+    "Format": "NNNNN (NNN NN)",
+    "Regex": "^d{5}s(d{3}sd{2})$"
+  },
+  {
+    "Country": "Slovenia",
+    "ISO": "SI",
+    "Format": "NNNN (CC-NNNN)",
+    "Regex": "^([Ss][Ii][- ]{0,1}){0,1}d{4}$"
+  },
+  {
+    "Country": "Solomon Islands",
+    "ISO": "SB",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Somalia",
+    "ISO": "SO",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "South Africa",
+    "ISO": "ZA",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "South Georgia and the South Sandwich Islands",
+    "ISO": "GS",
+    "Format": "SIQQ 1ZZ",
+    "Regex": "^[Ss][Ii][Qq]{2}s{0,1}[1][Zz]{2}$"
+  },
+  {
+    "Country": "South Korea",
+    "ISO": "KR",
+    "Format": "NNNNNN (NNN-NNN)",
+    "Regex": "^d{6}s(d{3}-d{3})$"
+  },
+  {
+    "Country": "Spain",
+    "ISO": "ES",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Sri Lanka",
+    "ISO": "LK",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Sudan",
+    "ISO": "SD",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Suriname",
+    "ISO": "SR",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Swaziland",
+    "ISO": "SZ",
+    "Format": "ANNN",
+    "Regex": "^[A-Za-z]d{3}$"
+  },
+  {
+    "Country": "Sweden",
+    "ISO": "SE",
+    "Format": "NNNNN (NNN NN)",
+    "Regex": "^d{3}s*d{2}$"
+  },
+  {
+    "Country": "Switzerland",
+    "ISO": "CH",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Svalbard and Jan Mayen",
+    "ISO": "SJ",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Syria",
+    "ISO": "SY",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Taiwan",
+    "ISO": "TW",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Tajikistan",
+    "ISO": "TJ",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Tanzania",
+    "ISO": "TZ",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Thailand",
+    "ISO": "TH",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Togo",
+    "ISO": "TG",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Tokelau",
+    "ISO": "TK",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Tonga",
+    "ISO": "TO",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Trinidad and Tobago",
+    "ISO": "TT",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Tristan da Cunha",
+    "ISO": "SH",
+    "Format": "TDCU 1ZZ",
+    "Regex": "^[Tt][Dd][Cc][Uu]s{0,1}[1][Zz]{2}$"
+  },
+  {
+    "Country": "Tunisia",
+    "ISO": "TN",
+    "Format": "NNNN",
+    "Regex": "^d{4}$"
+  },
+  {
+    "Country": "Turkey",
+    "ISO": "TR",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Turkmenistan",
+    "ISO": "TM",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Turks and Caicos Islands",
+    "ISO": "TC",
+    "Format": "TKCA 1ZZ",
+    "Regex": "^[Tt][Kk][Cc][Aa]s{0,1}[1][Zz]{2}$"
+  },
+  {
+    "Country": "Tuvalu",
+    "ISO": "TV",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Uganda",
+    "ISO": "UG",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Ukraine",
+    "ISO": "UA",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "United Arab Emirates",
+    "ISO": "AE",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "United Kingdom",
+    "ISO": "GB",
+    "Format": "A(A)N(A/N)NAA (A[A]N[A/N] NAA)",
+    "Regex": "^[A-Z]{1,2}[0-9R][0-9A-Z]?s*[0-9][A-Z-[CIKMOV]]{2}"
+  },
+  {
+    "Country": "United States",
+    "ISO": "US",
+    "Format": "NNNNN (optionally NNNNN-NNNN)",
+    "Regex": "^\bd{5}\b(?:[- ]{1}d{4})?$"
+  },
+  {
+    "Country": "Uruguay",
+    "ISO": "UY",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "U.S. Virgin Islands",
+    "ISO": "VI",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Uzbekistan",
+    "ISO": "UZ",
+    "Format": "NNN NNN",
+    "Regex": "^d{3} d{3}$"
+  },
+  {
+    "Country": "Vanuatu",
+    "ISO": "VU",
+    "Format": "- no codes -",
+    "Regex": ""
+  },
+  {
+    "Country": "Vatican",
+    "ISO": "VA",
+    "Format": "120",
+    "Regex": "^120$"
+  },
+  {
+    "Country": "Venezuela",
+    "ISO": "VE",
+    "Format": "NNNN or NNNN A",
+    "Regex": "^d{4}(s[a-zA-Z]{1})?$"
+  },
+  {
+    "Country": "Vietnam",
+    "ISO": "VN",
+    "Format": "NNNNNN",
+    "Regex": "^d{6}$"
+  },
+  {
+    "Country": "Wallis and Futuna",
+    "ISO": "WF",
+    "Format": "986NN",
+    "Regex": "^986d{2}$"
+  },
+  {
+    "Country": "Zambia",
+    "ISO": "ZM",
+    "Format": "NNNNN",
+    "Regex": "^d{5}$"
+  },
+  {
+    "Country": "Zimbabwe",
+    "ISO": "ZW",
+    "Format": "- no codes -",
+    "Regex": ""
+  }
+]

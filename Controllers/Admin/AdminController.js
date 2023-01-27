@@ -110,6 +110,7 @@ exports.addTicket = (req, res, next) => {
     flag: Boolean(req.body.flag),
     category: req.body.category,
     brand: req.body.brand,
+    country_id: req.body.country_id,
   });
 
   ticket

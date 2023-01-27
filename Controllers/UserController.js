@@ -17,7 +17,8 @@ exports.signup = (req, res, next) => {
       email: req.body.email,
       phone: req.body.phone,
       dob: req.body.dob,
-      country: req.body.country,
+      country: req.body.country.split("||")[0],
+      country_id: req.body.country.split("||")[1],
       // state: req.body.state,
       password: hash,
     });

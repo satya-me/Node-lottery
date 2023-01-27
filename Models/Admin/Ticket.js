@@ -24,6 +24,7 @@ const ticketSchema = mongoose.Schema(
     category: { type: String, required: [true,"Category is required!"] },
     brand: { type: String, required: false },
     is_banner: { type: Boolean, required: false },
+    country_id: { type: Object, required: true },
   },
   { timestamps: true }
 );
