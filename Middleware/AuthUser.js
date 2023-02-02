@@ -6,12 +6,12 @@ module.exports = (req, res, next) => {
   const clientIp = net.isIPv4(req.connection.remoteAddress)
     ? req.connection.remoteAddress.split(":").pop()
     : req.connection.remoteAddress.substr(7);
-  console.log(
-    "Request from IP is " + clientIp + ":" + req.headers.host.split(":").pop()
-  );
+  // console.log(
+  //   "Request from IP is " + clientIp + ":" + req.headers.host.split(":").pop()
+  // );
 
   // console.log(os.hostname());
-  console.log("Calling Route ", req.route.path);
+  console.table({ "Calling Route ": req.route.path });
   const token = req.headers.authorization.split(" ")[1];
 
   // console.log("From Auth ", req.headers);
@@ -27,6 +27,10 @@ module.exports = (req, res, next) => {
   } catch (err) {
     if (err.name === "TokenExpiredError") {
       // handle the expired token error
+      console.table({
+        error: "token expired",
+        message: "please login",
+      });
       res.status(401).json({
         error: "token expired",
         message: "please login",

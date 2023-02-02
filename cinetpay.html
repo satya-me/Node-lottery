@@ -3,6 +3,8 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/jpg"
+        href="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png">
     <script src="https://cdn.cinetpay.com/seamless/main.js"></script>
     <style>
         .sdk {
@@ -33,7 +35,7 @@
                 customer_name: "Joe",//Le nom du client
                 customer_surname: "Down",//Le prenom du client
                 customer_email: "down@test.com",//l'email du client
-                customer_phone_number: "671234567",//l'email du client
+                customer_phone_number: "698118056",//l'email du client
                 customer_address: "BP 0024",//addresse du client
                 customer_city: "Antananarivo",// La ville du client
                 customer_country: "CM",// le code ISO du pays
@@ -43,13 +45,34 @@
             });
             CinetPay.waitResponse(function (data) {
                 if (data.status == "REFUSED") {
-                    if (alert("Votre paiement a échoué")) {
-                        window.location.reload();
-                    }
+                    console.log({
+                        status: "REFUSED",
+                        resp: data
+                    });
+                    // if (alert("Votre paiement a échoué")) {
+                    //     window.location.reload();
+                    // }
                 } else if (data.status == "ACCEPTED") {
-                    if (alert("Votre paiement a été effectué avec succès")) {
-                        window.location.reload();
-                    }
+                    console.log({
+                        status: "ACCEPTED",
+                        resp: data
+                    });
+                    // console.log(
+                    //     {
+                    //         amount: "100",
+                    //         currency: "XAF",
+                    //         description: "Test de paiement",
+                    //         metadata: null,
+                    //         operator_id: "MP230130.0823.A90276",
+                    //         payment_date: "2023-01-30 07:23:02",
+                    //         payment_method: "OMCM",
+                    //         status: "ACCEPTED",
+                    //     }
+                    // );
+
+                    // if (alert("Votre paiement a été effectué avec succès")) {
+                    //     window.location.reload();
+                    // }
                 }
             });
             CinetPay.onError(function (data) {
@@ -64,7 +87,7 @@
 
     <body>
         <div class="sdk">
-            <h1>SDK SEAMLESS</h1>
+            <h1>SDK SEAMLESS 698118056</h1>
             <button onclick="checkout()">Checkout</button>
         </div>
     </body>

@@ -116,12 +116,14 @@ exports.deleteCart = (req, res, next) => {
     Cart.findOne({ _id: id }).then((isCart) => {
       // console.log(isCart);
       if (isCart === null) {
-        res.status(500).json("Item not found!");
+        res
+          .status(500)
+          .json({ message: "Item not found. or removed from cart!" });
         // return;
       } else {
         Cart.deleteOne({ _id: id })
           .then((resp) => {
-            res.status(500).json("One item removed!");
+            res.status(500).json({ message: "One item removed!" });
           })
           .catch((err) => {
             res.status(500).json(err);
@@ -129,4 +131,10 @@ exports.deleteCart = (req, res, next) => {
       }
     });
   }
+};
+
+exports.OrderPlace = (req, res) => {
+  //
+  console.log(req.body);
+  res.status(200).json(req.body);
 };

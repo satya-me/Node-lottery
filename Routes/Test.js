@@ -9,6 +9,12 @@ router.post("/files_upload", singleImageUpload.single("photo"), testCtrl.multiFi
 router.post("/files_uploads", multipleImageUpload.array("photos", 10), testCtrl.multiFileUpload);
 
 router.get('/view', testCtrl.view);
+router.post('/pay/callback', testCtrl.CB);
+router.post('/pay/notify', testCtrl.NF);
+router.post('/pay/init', testCtrl.INITpay);
+
+
+
 
 
 module.exports = router;

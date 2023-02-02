@@ -7,13 +7,21 @@ const d = new Date();
 exports.UserPasswordEmailNotification = (req, token) => {
   console.log("Email ", req);
   var transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: +process.env.EMAIL_PORT,
-    secure: false, // true for 587, false for other ports
-    requireTLS: true,
+    // host: process.env.EMAIL_HOST,
+    // port: +process.env.EMAIL_PORT,
+    // secure: false, // true for 587, false for other ports
+    // // requireTLS: true,
+    // auth: {
+    //   user: "kotai.workalert@gmail.com",
+    //   pass: "hldatodtwmxjqhaf",
+    // },
+
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false, // true for 465, false for other ports
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASSWORD,
+      user: "satyajit.team@gmail.com", // generated ethereal user
+      pass: "jilomwtinpflyoyp", // generated ethereal password
     },
   });
 

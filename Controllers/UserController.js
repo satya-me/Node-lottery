@@ -7,6 +7,7 @@ const fs = require("fs");
 const path = require("path");
 const d = new Date();
 const UserEmail = require("../Controllers/Email/PasswordReset");
+const { table } = require("console");
 exports.signup = (req, res, next) => {
   //
   console.log(req.body);
@@ -19,7 +20,10 @@ exports.signup = (req, res, next) => {
       dob: req.body.dob,
       country: req.body.country.split("||")[0],
       country_id: req.body.country.split("||")[1],
-      // state: req.body.state,
+      state: "",
+      state_id: "",
+      city: "",
+      zip: "",
       password: hash,
     });
     user
@@ -74,7 +78,7 @@ exports.login = (req, res, next) => {
               email: user.email,
               phone: user.phone,
               dob: user.dob,
-              // country: user.country,
+              country: user.country,
               // city: user.city,
             },
             token: token,
@@ -185,3 +189,16 @@ exports.allTickets = (req, res, next) => {
 };
 
 exports.ticketById = (req, res, next) => {};
+
+exports.UpdateProfile = (req, res) => {
+  //
+  // full_name
+  // email
+  // phone
+  // dob
+  // country
+  // console.table(req.body);
+
+  console.table(req.body);
+  res.status(200).json(req.body);
+};
