@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken");
 const Cart = require("../Models/Cart");
 const Ticket = require("../Models/Admin/Ticket");
+const Order = require("../Models/Order");
+const { all } = require("axios");
 
 exports.addCart = (req, res) => {
   const user_id = req.body.user_id;
@@ -133,8 +135,75 @@ exports.deleteCart = (req, res, next) => {
   }
 };
 
-exports.OrderPlace = (req, res) => {
-  //
-  console.log(req.body);
-  res.status(200).json(req.body);
+exports.OrderPlace = async (req, res) => {
+  const all_product = req.body.product_info;
+  console.log(typeof all_product);
+  // return;
+  let meta = [];
+  let error = "false";
+  console.log("hi");
+
+  for (const element of all_product) {
+    const docs = await Ticket.find({ _id: element.product_id }).exec();
+    if (docs[0]._id == element.product_id) {
+      if (element.quantity > docs[0].ticket_quantity) {
+        error = "true";
+        meta.push({
+          cart_id: element.id,
+          pro_id: element.product_id,
+          quantity: element.quantity + " Asking quantity is not available!",
+        });
+      }
+    }
+  }
+  if (error == "true") {
+    console.log({ error: error, meta });
+    res.status(200).json({ error: error, meta });
+  }
+  if (error == "false") {
+    const order = [];
+    for (const kadi of all_product) {
+      // console.log({ flag: flag, meta });
+      let tot_pri = kadi.ticket_price * kadi.quantity;
+      let disc = kadi.discount_percentage;
+      let total_discount_price;
+      if (disc) {
+        total_discount_price =
+          ((kadi.ticket_price * disc) / 100) * kadi.quantity;
+      } else {
+        total_discount_price = kadi.ticket_price * kadi.quantity;
+      }
+
+      order.push({
+        product_id: kadi.product_id,
+        unit_price: kadi.ticket_price,
+        quantity: kadi.quantity,
+        discount: kadi.discount_percentage,
+        total_price: tot_pri,
+        // total_discount_price: total_discount_price,
+        total_discount_price: total_discount_price,
+        // coupon_id: req.body.product_info,
+
+        address: req.body.address.address,
+        roadName: req.body.address.roadName,
+        pincode: req.body.address.pincode,
+        country: req.body.address.country.split("||")[0],
+        country_id: req.body.address.country.split("||")[1],
+        state: req.body.address.state.split("||")[0],
+        state_id: req.body.address.state.split("||")[1],
+        other_info: "",
+      });
+      // order.save().then((sa) => {
+      //   res.status(200).json({ flag: flag, meta });
+      // });
+    }
+    console.log(order);
+    res.status(200).json(order);
+  }
 };
+
+//
+// console.log(req.body);
+// Order address Table
+// Order Table
+// Transaction History
