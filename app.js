@@ -1,7 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 const mongoose = require("mongoose");
-const ticketRoutes = require("./Routes/ticket");
+// const ticketRoutes = require("./Routes/ticket");
 const userRoutes = require("./Routes/User");
 const adminRoutes = require("./Routes/Admin/Admin");
 const testRoutes = require("./Routes/Test");
@@ -45,7 +45,7 @@ app.use("/api/admin", adminRoutes);
 
 // Global routes
 app.use("/api", configRoutes);
-app.use("/api/ticket", ticketRoutes);
+// app.use("/api/ticket", ticketRoutes);
 
 // temp test route
 app.use("/api/test", testRoutes);
