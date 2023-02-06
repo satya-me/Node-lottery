@@ -31,7 +31,7 @@ router.post(
 );
 router.get("/cart/:user_id", auth, cart.getCart);
 
-router.get("/cart/delete/:cart_id", auth, cart.deleteCart);
+router.delete("/cart/delete/:cart_id", auth, cart.deleteCart);
 
 router.get("/cart/qt_update/:ticket_id/:quantity", auth, cart.updateCart);
 
@@ -46,5 +46,6 @@ router.get("/update/transaction", accountCtrl.UpdateTnx);
 router.post("/update/profile", UseLess, auth, userCtrl.UpdateProfile);
 
 router.post("/order", UseLess, auth, cart.OrderPlace);
+router.get("/order/history", UseLess, auth, cart.OrderHistory);
 
 module.exports = router;

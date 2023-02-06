@@ -29,9 +29,28 @@ exports.signup = (req, res, next) => {
     user
       .save()
       .then((resp) => {
+        const filteredResp = {
+          // _id: resp._id,
+          // full_name: resp.full_name,
+          // email: resp.email,
+          // phone: resp.phone,
+          // dob: resp.dob,
+
+          _id: resp._id,
+          full_name: resp.full_name,
+          email: resp.email,
+          phone: resp.phone,
+          dob: resp.dob,
+          country: resp.country,
+          country_id: resp.country_id,
+          state: resp.state,
+          state_id: resp.state_id,
+          city: resp.city,
+          zip: resp.zip,
+        };
         res.status(201).json({
           message: "User created successfully",
-          res: resp,
+          res: filteredResp,
         });
       })
       .catch((error) => {
@@ -190,15 +209,33 @@ exports.allTickets = (req, res, next) => {
 
 exports.ticketById = (req, res, next) => {};
 
-exports.UpdateProfile = (req, res) => {
-  //
+exports.UpdateProfile = async (req, res) => {
   // full_name
   // email
   // phone
   // dob
   // country
-  // console.table(req.body);
+  const token = req.headers.authorization.split(" ")[1];
+  const decoded = jwt.verify(token, "RANDOM_TOKEN_SECRET");
 
-  console.table(req.body);
-  res.status(200).json(req.body);
+  try {
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: decoded.userId },
+      {
+        $set: {
+          full_name: req.body.full_name,
+          email: req.body.email,
+          phone: req.body.phone,
+        },
+      },
+      { new: true, select: "-password -set_pass" }
+    );
+    console.log(updatedUser);
+    res.status(200).json(updatedUser);
+  } catch (err) {
+    console.log("err" + err);
+    res.status(500).send(err);
+  }
+
+  // console.table(req.body);
 };
