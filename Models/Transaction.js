@@ -9,6 +9,7 @@ const transactionSchema = mongoose.Schema(
     amount: { type: String, required: false },
     currency: { type: String, required: false },
     status: { type: String, required: false },
+    status_code: { type: String, required: false },
     payment_method: { type: String, required: false },
     description: { type: String, required: false },
     metadata: { type: String, required: false },

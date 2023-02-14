@@ -9,11 +9,9 @@ const storage = multer.diskStorage({
       F = "";
     }
     const uploadFolder = "public/images/uploads" + F;
-    console.log(uploadFolder);
     if (!fs.existsSync(uploadFolder)) {
       fs.mkdirSync(uploadFolder, { recursive: true });
     }
-    // console.log("Multer ", req);
     cb(null, uploadFolder);
   },
   filename: function (req, file, cb) {
@@ -21,7 +19,7 @@ const storage = multer.diskStorage({
 
     const ext = file.originalname
       .split(".")
-      .filter(Boolean) // removes empty extensions (e.g. `filename...txt`)
+      .filter(Boolean)
       .slice(1)
       .join(".");
 
@@ -30,12 +28,10 @@ const storage = multer.diskStorage({
 });
 
 const singleImageUpload = multer({
-  // configure multer settings for single image uploads
   storage: storage,
 });
 
 const multipleImageUpload = multer({
-  // configure multer settings for multiple image uploads
   storage: storage,
 });
 

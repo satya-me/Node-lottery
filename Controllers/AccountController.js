@@ -47,10 +47,6 @@ exports.transaction = (fs, se, th, fr, txn_id) => {
 };
 
 exports.init = (req, res) => {
-  //
-  // token
-  // payment_token
-  // payment_url
   const token = req.headers.authorization.split(" ")[1];
 
   const decoded = jwt.verify(token, "RANDOM_TOKEN_SECRET");
@@ -65,7 +61,7 @@ exports.init = (req, res) => {
     wallet_id: "",
     type: "",
     message: "",
-    amount: "",
+    amount: req.body.amount,
     currency: "",
     status: "Init",
     payment_method: "",
@@ -79,7 +75,8 @@ exports.init = (req, res) => {
   })
     .save()
     .then((tran) => {
-      this.CinetPay({ token: tran.payment_token, flag: "self" });
+      console.log(tran);
+      // this.CinetPay({ token: tran.payment_token, flag: "self" });
       res.status(200).json(tran);
     })
     .catch((err) => {
@@ -117,7 +114,7 @@ exports.CinetPay = (req, res) => {
   // console.log("conf ", JSON.parse(config.data).token);
   axios(config)
     .then(function (response) {
-      console.log(response);
+      // console.log(response);
       let flag = "true";
       if (response.data.data.status == "ACCEPTED") {
         const user_token = response.data.data.metadata;
@@ -200,9 +197,13 @@ exports.CinetPay = (req, res) => {
         }
       ).then((su) => {
         if (req.flag === "self") {
-          console.log(su);
+          // console.log(su);
+          console.log("false");
+          // window.location("http://192.168.1.18:3303");
+          res.redirect("http://192.168.1.18:3000");
         } else {
-          res.status(200).json(su);
+          res.redirect("http://192.168.1.18:3000");
+          // res.status(200).json(su);
         }
       });
     })
@@ -224,26 +225,68 @@ exports.getTransaction = (req, res) => {
   });
 };
 
-exports.UpdateTnx = (req, res) => {
-  // fetch all transaction for this user
-  // console.log({ token: req.headers.authorization });
+// exports.UpdateTnx = (req, res) => {
+//   // fetch all transaction for this user
+//   // console.log({ token: req.headers.authorization });
 
-  const token = req.headers.authorization.split(" ")[1];
-  const decoded = jwt.verify(token, "RANDOM_TOKEN_SECRET");
+//   const token = req.headers.authorization.split(" ")[1];
+//   const decoded = jwt.verify(token, "RANDOM_TOKEN_SECRET");
 
-  Transaction.find({ user_id: decoded.userId }).then((resp) => {
-    let c = 1;
-    resp.map((item) => {
-      if (item.status === "ACCEPTED" && item.status_call_req === "true") {
-        // console.log(item.payment_url);
-        var data = JSON.stringify({
-          // transaction_id: req.body.transaction_id, // 32460244 //86407550 ->meta
+//   Transaction.find({ user_id: decoded.userId }).then((resp) => {
+//     let c = 1;
+//     resp.map((item) => {
+//       if (true) {
+//         var data = JSON.stringify({
+//           token:
+//             "6d6a4861b91dd4b335cd6ba9618bcf6f548229c6a210475211edc066bd58002684aa082ee4b9abff2acbaf4df97a491438465415abecbe",
+//           //item.payment_token,
+//           site_id: "126127",
+//           apikey: "102219127563b7f7c53a41e9.62135970",
+//         });
+//         console.log(item.payment_token);
+//         var config = {
+//           method: "post",
+//           url: "https://api-checkout.cinetpay.com/v2/payment/check",
+//           headers: {
+//             "Content-Type": "application/json",
+//           },
+//           data: data,
+//         };
+//         axios(config).then(function (response) {
+//           if (response.data.data.amount != null) {
+//             console.log({
+//               Status: response.data.data,
+//               url: item.status_call_req,
+//               id: item._id,
+//             });
+//           } else {
+//             console.log("update");
+//           }
+//         });
+//       }
+//     });
+//   });
+// };
+
+exports.UpdateTnx = async (req, res) => {
+  try {
+    const token = req.headers.authorization.split(" ")[1];
+    const decoded = jwt.verify(token, "RANDOM_TOKEN_SECRET");
+    const resp = await Transaction.find({ user_id: decoded.userId });
+    let msg;
+    for (let item of resp) {
+      // console.log(item);
+      if (item.status_code != "00" || item.status_code == "627") {
+        // if (true) {
+        // console.log("HI ");
+        const data = JSON.stringify({
           token: item.payment_token,
+          // "c3b63d0a5a6b67fdba066b00ee5aaceb187c6f4b52a2bee0372664b4f2cbfec829a4cc447c36807d67589d714e5007eb8128dfa936971b",
           site_id: "126127",
           apikey: "102219127563b7f7c53a41e9.62135970",
         });
-
-        var config = {
+        // console.log(item.payment_token);
+        const config = {
           method: "post",
           url: "https://api-checkout.cinetpay.com/v2/payment/check",
           headers: {
@@ -251,98 +294,55 @@ exports.UpdateTnx = (req, res) => {
           },
           data: data,
         };
-        axios(config).then(function (response) {
+        const response = await axios(config);
+        console.log(response.data);
+        let tran = await Transaction.updateOne(
+          { payment_token: item.payment_token },
+          {
+            $set: {
+              // amount: response.data.data.amount,
+              status: response.data.data.status,
+              currency: response.data.data.currency,
+              status: response.data.message,
+              status_code: response.data.code,
+              payment_method: response.data.data.payment_method,
+              metadata: response.data.data.metadata,
+              operator_id: response.data.data.operator_id,
+              payment_date: response.data.data.payment_date,
+              status_call_req: "false",
+            },
+          }
+        );
+        let check = await Wallet.findOne({ user_id: decoded.userId });
+        if (check) {
+          const has_bal = check.balance;
+          const req_bal = +response.data.data.amount; // you can use the + operator to convert a string to a number.
+          const total_bal = has_bal + req_bal;
           if (
-            response.data.data.status == "ACCEPTED" &&
-            item.status_call_req === "true"
+            response.data.amount != null &&
+            response.data.amount == item.amount
           ) {
-            const user_token = response.data.data.metadata;
-            const decoded = jwt.verify(user_token, "RANDOM_TOKEN_SECRET");
-
-            // wallet update function
-            Transaction.updateOne(
-              { payment_token: item.payment_token },
-              {
-                $set: {
-                  amount: response.data.data.amount,
-                  status: response.data.data.status,
-                  currency: response.data.data.currency,
-                  status: response.data.data.status,
-                  payment_method: response.data.data.payment_method,
-                  metadata: response.data.data.metadata,
-                  operator_id: response.data.data.operator_id,
-                  payment_date: response.data.data.payment_date,
-                  status_call_req: "false",
-                },
-              }
-            ).then((succ) => {
-              Wallet.findOne({ user_id: decoded.userId })
-                .then((r) => {
-                  console.log(r);
-                  if (r) {
-                    const has_bal = r.balance;
-                    const req_bal = +response.data.data.amount; // you can use the + operator to convert a string to a number.
-                    const total_bal = has_bal + req_bal;
-                    Wallet.findOneAndUpdate(
-                      { user_id: decoded.userId },
-                      { balance: total_bal },
-                      { new: true }
-                    )
-                      .then((update) => {
-                        console.log(update);
-                      })
-                      .catch((error) => {
-                        console.log(error);
-                      });
-                  } else {
-                    // console.log("no bal");
-                    const balance = new Wallet({
-                      user_id: decoded.userId,
-                      balance: +response.data.data.amount,
-                    });
-                    balance
-                      .save()
-                      .then((save) => {
-                        console.log("First recharge bal");
-                      })
-                      .catch((err) => {
-                        console.log({
-                          message: "Error! with recharge!",
-                          error: err,
-                        });
-                      });
-                  }
-                })
-                .catch((e) => {
-                  console.log(e);
-                });
-            });
+            let update = await Wallet.findOneAndUpdate(
+              { user_id: decoded.userId },
+              { balance: total_bal },
+              { new: true }
+            );
+            if (update) {
+              console.log("Ballance updated!");
+            }
           }
-          if (response.data.data.status == "REFUSED") {
-            flag = "false";
-            Transaction.updateOne(
-              { payment_token: _token },
-              {
-                $set: {
-                  amount: response.data.data.amount,
-                  status: response.data.data.status,
-                  currency: response.data.data.currency,
-                  status: response.data.data.status,
-                  payment_method: response.data.data.payment_method,
-                  metadata: response.data.data.metadata,
-                  operator_id: response.data.data.operator_id,
-                  payment_date: response.data.data.payment_date,
-                  status_call_req: flag,
-                },
-              }
-            ).then((su) => {
-              
-            });
-          }
-        });
+        }
+        // console.log({ tran, token: item.payment_token });
+        msg = tran;
+      } else {
+        console.log("No pending request!");
+        msg = "No pending request!";
       }
-    });
-  });
+    }
+    res.status(200).json(msg);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 exports.Recharge = (req, res) => {

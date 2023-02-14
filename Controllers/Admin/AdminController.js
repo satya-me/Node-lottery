@@ -80,6 +80,19 @@ exports.login = (req, res, next) => {
 
 exports.addTicket = (req, res, next) => {
   // console.log(req.files.image);
+  // console.log(req.files.list_image);
+  let list_image = [];
+  if (req.files.list_image) {
+    for (let j = 0; j < req.files.list_image.length; j++) {
+      list_image.push(
+        req.files.list_image[j].destination +
+          "/" +
+          req.files.list_image[j].filename
+      );
+    }
+  }
+  console.log(list_image);
+
   const feature = [];
   if (req.body.specifications_key) {
     for (let i = 0; i < req.body.specifications_key.length; i++) {
@@ -98,6 +111,7 @@ exports.addTicket = (req, res, next) => {
     time_left: req.body.time_left,
     main_image:
       req.files.image[0].destination + "/" + req.files.image[0].filename,
+    list_image: list_image,
 
     description: req.body.description,
     // specification: req.body.key_feature,
@@ -107,6 +121,7 @@ exports.addTicket = (req, res, next) => {
 
     status: req.body.status,
     is_promo: Boolean(req.body.is_promo),
+    is_banner: Boolean(req.body.is_banner),
     flag: Boolean(req.body.flag),
     category: req.body.category,
     brand: req.body.brand,

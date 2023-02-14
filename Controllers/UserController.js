@@ -3,11 +3,13 @@ const jwt = require("jsonwebtoken");
 var nodemailer = require("nodemailer");
 const User = require("../Models/User");
 const Ticket = require("../Models/Admin/Ticket");
+const Country = require("../Models/Countries");
 const fs = require("fs");
 const path = require("path");
 const d = new Date();
 const UserEmail = require("../Controllers/Email/PasswordReset");
 const { table } = require("console");
+
 exports.signup = (req, res, next) => {
   //
   console.log(req.body);
@@ -89,18 +91,29 @@ exports.login = (req, res, next) => {
           const token = jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", {
             expiresIn: "48h",
           });
-          res.status(200).json({
-            user_details: {
-              user_id: user._id,
-              full_name: user.full_name,
-              // last_name: user.last_name,
-              email: user.email,
-              phone: user.phone,
-              dob: user.dob,
-              country: user.country,
-              // city: user.city,
-            },
-            token: token,
+          // Country.find({_id: })
+          const country = Country.findOne({ countries_id: user.country_id });
+          country.then((co) => {
+            res.status(200).json({
+              user_details: {
+                user_id: user._id,
+                full_name: user.full_name,
+                // last_name: user.last_name,
+                email: user.email,
+                phone: user.phone,
+                dob: user.dob,
+                country: user.country,
+
+                country_id: user.country_id,
+                iso2: co.iso2,
+                phonecode: co.phonecode,
+                currency: co.currency,
+                currency_name: co.currency_name,
+                currency_symbol: co.currency_symbol,
+                region: co.region,
+              },
+              token: token,
+            });
           });
         })
         .catch((error) => {

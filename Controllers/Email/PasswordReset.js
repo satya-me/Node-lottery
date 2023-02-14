@@ -7,15 +7,6 @@ const d = new Date();
 exports.UserPasswordEmailNotification = (req, token) => {
   console.log("Email ", req);
   var transporter = nodemailer.createTransport({
-    // host: process.env.EMAIL_HOST,
-    // port: +process.env.EMAIL_PORT,
-    // secure: false, // true for 587, false for other ports
-    // // requireTLS: true,
-    // auth: {
-    //   user: "kotai.workalert@gmail.com",
-    //   pass: "hldatodtwmxjqhaf",
-    // },
-
     host: "smtp.gmail.com",
     port: 587,
     secure: false, // true for 465, false for other ports

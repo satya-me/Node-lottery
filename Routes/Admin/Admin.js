@@ -11,7 +11,10 @@ router.post("/auth/login", adminCtrl.login);
 
 router.post(
   "/add-ticket",
-  multer.singleImageUpload.fields([{ name: "image", maxCount: 1 }]),
+  multer.singleImageUpload.fields([
+    { name: "image", maxCount: 1 },
+    { name: "list_image", maxCount: 5 },
+  ]),
   auth,
   adminCtrl.addTicket
 );
