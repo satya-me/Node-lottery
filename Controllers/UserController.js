@@ -12,7 +12,7 @@ const { table } = require("console");
 
 exports.signup = (req, res, next) => {
   //
-  console.log(req.body);
+  // console.log(req.body);
   bcrypt.hash(req.body.password, 10).then((hash) => {
     const user = new User({
       full_name: req.body.full_name,
@@ -32,11 +32,7 @@ exports.signup = (req, res, next) => {
       .save()
       .then((resp) => {
         const filteredResp = {
-          // _id: resp._id,
-          // full_name: resp.full_name,
-          // email: resp.email,
-          // phone: resp.phone,
-          // dob: resp.dob,
+ 
 
           _id: resp._id,
           full_name: resp.full_name,

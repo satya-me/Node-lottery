@@ -40,7 +40,6 @@ exports.signup = (req, res, next) => {
 exports.login = (req, res, next) => {
   //
   console.log(" Login route" + d);
-  // { "$or": [ { email: req.body.email }, { phone: req.body.phone} ] }
   const input = req.body.email || req.body.phone;
   Admin.findOne({ $or: [{ email: req.body.email }, { phone: req.body.phone }] })
     .then((user) => {
