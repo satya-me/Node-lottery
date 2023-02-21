@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>AdminLTE 3 | Log in (v2)</title>
+    <title><%- meta.title %></title>
 
     <!-- Google Font: Source Sans Pro -->
     <link
@@ -31,19 +31,22 @@
       <!-- /.login-logo -->
       <div class="card card-outline card-primary">
         <div class="card-header text-center">
-          <a href="../../../public/admin/index2.html" class="h1"
-            ><b>Admin</b>LTE</a
-          >
+          <img
+            src="../../../public/admin/dist/img/logo-lottery.png"
+            alt=""
+            srcset=""
+          />
         </div>
         <div class="card-body">
           <p class="login-box-msg">Sign in to start your session</p>
 
-          <form action="<%= meta.url+'/login' %>" method="post">
+          <form action="<%= meta.url+'/login' %>" id="loginForm" method="post">
             <div class="input-group mb-3">
               <input
                 type="email"
                 name="email"
-                class="form-control"
+                id="email"
+                class="form-control border"
                 placeholder="Email"
               />
               <div class="input-group-append">
@@ -56,7 +59,8 @@
               <input
                 type="password"
                 name="password"
-                class="form-control"
+                id="password"
+                class="form-control border"
                 placeholder="Password"
               />
               <div class="input-group-append">
@@ -75,9 +79,17 @@
               <!-- /.col -->
             </div>
           </form>
-
           <!-- /.social-auth-links -->
         </div>
+        <% if (errorMessage) { %>
+        <div class="alert alert-danger"><%= errorMessage %></div>
+        <script>
+          var logo = document.querySelectorAll(".input-group-text");
+          for (var i = 0; i < logo.length; i++) {
+            logo[i].style.backgroundColor = "tomato";
+          }
+        </script>
+        <% } %>
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
@@ -90,5 +102,37 @@
     <script src="../../../public/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../../../public/admin/dist/js/adminlte.min.js"></script>
+
+    <script>
+      function DoLogin() {
+        var email = $("#email").val();
+        var password = $("#password").val();
+        $.ajax({
+          type: "POST",
+          url: "<%= meta.url+'/login' %>",
+          data: {
+            email: email,
+            password: password,
+          },
+          dataType: "text",
+          success: function (resultData) {
+            console.log(resultData);
+            var logo = document.querySelectorAll(".input-group-text");
+            for (var i = 0; i < logo.length; i++) {
+              logo[i].style.backgroundColor = "#0bef0b9e";
+            }
+            window.location.href = "<%= meta.url+'/' %>";
+          },
+          error: function (err) {
+            $("#err").val(err.responseText);
+            var logo = document.querySelectorAll(".input-group-text");
+            for (var i = 0; i < logo.length; i++) {
+              logo[i].style.backgroundColor = "tomato";
+            }
+          },
+        });
+      }
+    </script>
   </body>
 </html>
+

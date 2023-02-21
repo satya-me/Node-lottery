@@ -40,7 +40,7 @@ const userSchema = mongoose.Schema(
           const ageInYears = age.getUTCFullYear() - 1970;
           return ageInYears >= 21;
         },
-        message: "Sorry, you must be 21 or older to register.",
+        message: "Sorry, you must be 17 or older to register.",
       },
     },
     country: { type: String, required: [true, "Country is required"] },

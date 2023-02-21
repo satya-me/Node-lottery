@@ -19,12 +19,12 @@ module.exports = (req, res, next) => {
   //   });
   // }
 
-    if (req.session.user) {
-      next(); // User has an active session, so call the next middleware
-    } else {
-      next();
-      // res.redirect('/admin/login'); // User does not have an active session, so redirect to the login page
-    }
-  
+  if (req.session.user) {
+    next(); // User has an active session, so call the next middleware
+  } else {
+    // next();
+    res.redirect('/admin/login'); // User does not have an active session, so redirect to the login page
+  }
+
 
 };

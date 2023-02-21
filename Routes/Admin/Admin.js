@@ -4,7 +4,7 @@ const router = express.Router();
 // const multer_multi = require("../../Middleware/multiple-files");
 const multer = require("../../Middleware/multer");
 const auth = require("../../Middleware/AuthAdmin");
-const adminCtrl = require("../../Controllers/Admin/AdminController");
+const adminCtrl = require("../../Controllers/Admin/AdminApiController");
 
 router.post("/auth/signup", adminCtrl.signup);
 router.post("/auth/login", adminCtrl.login);

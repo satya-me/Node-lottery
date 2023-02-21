@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const ticketRoutes = require("./Routes/ticket");
 const userRoutes = require("./Routes/User");
 const adminRoutes = require("./Routes/Admin/Admin");
-const adminHomeRoutes = require("./Routes/Admin/Home");
+const adminHomeRoutes = require("./Routes/Admin/WebRoute");
 const testRoutes = require("./Routes/Test");
 const configRoutes = require("./Routes/Config");
 const path = require("path");
@@ -33,12 +33,15 @@ mongoose
 
 const app = express();
 
-// Session Impliment
+
+// Configure the express-session middleware
 app.use(session({
-  secret: 'mysecret',
+  secret: 'your-secret-key',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: true,
+  cookie: { secure: false } // set this to true if you're using HTTPS
 }));
+
 
 
 // Set Templating Engine
