@@ -45,7 +45,8 @@ app.set("views", path.join(__dirname, "Views"));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/Public", express.static(path.join(__dirname, "./Public")));
+// app.use("/Public", express.static(path.join(__dirname, "./Public")));
+app.use(express.static('Public'));
 
 // User routes
 app.use("/api/auth", userRoutes);
