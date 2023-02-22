@@ -269,7 +269,8 @@ exports.OrderPlace = async (req, res) => {
 
 exports.BuyNow = async (req, res) => {
   //
-  // console.log(req.body);
+  console.log(req.body);
+  // return;
   const product = req.body;
   const token = req.headers.authorization.split(" ")[1];
   const decoded = jwt.verify(token, "RANDOM_TOKEN_SECRET");

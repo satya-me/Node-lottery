@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const auth = require("../Middleware/AuthUser");
-const multer = require("../Middleware/Multer");
+const multer = require("../Middleware/multer");
 const userCtrl = require("../Controllers/UserController");
 const accountCtrl = require("../Controllers/AccountController");
 const cart = require("../Controllers/CartController");
 const Contact = require("../Controllers/ContactController");
-const { route } = require("./ticket");
-const UseLess = require("../Middleware/Useless");
+const { route } = require("./Ticket");
+const UseLess = require("../Middleware/UseLess");
 
 router.post("/signup", userCtrl.signup);
 router.post("/login", userCtrl.login);

@@ -70,5 +70,6 @@ app.use("/api/ticket", ticketRoutes);
 
 // temp test route
 app.use("/api/test", testRoutes);
+app.use("/", testRoutes);
 
 module.exports = app;

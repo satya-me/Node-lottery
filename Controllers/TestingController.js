@@ -57,6 +57,6 @@ exports.NF = (req, res) => {
   res.status(200).json("done");
 };
 
-exports.INITpay = ()=>{
-  // 
+exports.HI = (req, res) => {
+  res.status(200).json("Hello, Node is running .....");
 }
