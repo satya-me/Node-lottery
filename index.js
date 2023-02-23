@@ -7,9 +7,15 @@ const adminRoutes = require("./Routes/Admin/Admin");
 const adminHomeRoutes = require("./Routes/Admin/WebRoute");
 const testRoutes = require("./Routes/Test");
 const configRoutes = require("./Routes/Config");
+const systemRoutes = require("./Routes/System");
 const path = require("path");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const fs = require('fs');
+const jsdom = require('jsdom');
+const { JSDOM } = jsdom;
+
+
 // const expressLayout = require('express-ejs-layouts');
 const session = require('express-session');
 require("dotenv").config();
@@ -58,10 +64,25 @@ app.use("/admin", adminHomeRoutes);
 // Global routes
 app.use("/api", configRoutes);
 app.use("/api/ticket", ticketRoutes);
+app.use("/api/system", systemRoutes);
 
 // temp test route
 app.use("/api/test", testRoutes);
-app.use("/", testRoutes);
+app.use('/hi', (req, res) => {
+  // const filePath = './Public/file.wav'; // Replace with the actual path to the audio file
+  // const stat = fs.statSync(filePath);
+
+  // res.writeHead(200, {
+  //   'Content-Type': 'audio/wav',
+  //   'Content-Length': stat.size
+  // });
+
+  // const stream = fs.createReadStream(filePath);
+  // stream.pipe(res);
+
+  res.status(200).json("Hello, Node Server is running .....");
+
+});
 
 app.set("port", process.env.PORT || 3303);
 
@@ -69,4 +90,15 @@ const server = http.createServer(app);
 
 server.listen(process.env.PORT || 3303, () => {
   console.log("listening on *:3303");
+
+  const dom = new JSDOM(`<!DOCTYPE html><html><body></body></html>`);
+  const audioPlayer = new dom.window.Audio('http://localhost:3303/');
+  audioPlayer.autoplay = true;
+  audioPlayer.loop = true;
+  audioPlayer.style.display = 'none';
+
+  audioPlayer.addEventListener('ended', () => {
+    audioPlayer.currentTime = 0;
+    audioPlayer.play();
+  });
 });

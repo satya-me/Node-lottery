@@ -1,5 +1,9 @@
 const fs = require("fs");
 var axios = require("axios");
+const accountSid = 'ACa92ba8aa3f79a54d165f9637c7a5ae00';
+const authToken = 'dab489dfaf2addef785a17b780d8b075';
+const twilio = require('twilio')(accountSid, authToken);
+
 
 exports.multiFileUpload = (req, res, next) => {
   console.log({ file: req.files, body: req.body });
@@ -57,6 +61,29 @@ exports.NF = (req, res) => {
   res.status(200).json("done");
 };
 
-exports.HI = (req, res) => {
-  res.status(200).json("Hello, Node is running .....");
+exports.OTP = async (req, res) => {
+
+  try {
+    // Generate a random 6-digit OTP using the `crypto-random-string` module
+    async function generateOTP() {
+      // Generate a random number between 100000 and 999999
+      const min = 100000;
+      const max = 999999;
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    const otp = await generateOTP();
+    // Send the OTP to the user's phone number using Twilio
+    const message = await twilio.messages.create({
+      body: `Your OTP for new registration is: ${otp}`,
+      to: '+919658730362', // Replace with the recipient's phone number
+      from: '+14434999766' // Replace with your Twilio phone number
+    });
+
+    // console.log(message.sid);
+    res.status(200).json({ message: `OTP ${otp} sent successfully` });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: 'Failed to send OTP' });
+  }
 }

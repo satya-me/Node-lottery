@@ -206,7 +206,7 @@ exports.allTickets = (req, res, next) => {
         return {
           ...ticket._doc,
           is_image: `${ticket.main_image}`,
-          main_image: `${url}/${ticket.main_image}`,
+          main_image: `${ticket.main_image}`,
         };
       });
       if (resp) res.status(200).json(modifiedResponse);

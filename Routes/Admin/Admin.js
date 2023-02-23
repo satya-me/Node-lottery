@@ -3,7 +3,7 @@ const router = express.Router();
 // const multer = require("../../Middleware/multer-config");
 // const multer_multi = require("../../Middleware/multiple-files");
 const multer = require("../../Middleware/multer");
-const auth = require("../../Middleware/AuthAdmin");
+const auth = require("../../Middleware/ApiAdmin");
 const adminCtrl = require("../../Controllers/Admin/AdminApiController");
 
 router.post("/auth/signup", adminCtrl.signup);

@@ -78,20 +78,25 @@ exports.login = (req, res, next) => {
 };
 
 exports.addTicket = (req, res, next) => {
-  // console.log(req.files.image);
-  // console.log(req.files.list_image);
+  // console.log(req.files.image[0].destination);
+  // console.log("images/uploads/ticket/" + req.files.image[0].filename);
+  // return;
   let list_image = [];
   if (req.files.list_image) {
     for (let j = 0; j < req.files.list_image.length; j++) {
+      // list_image.push(
+      //   req.files.list_image[j].destination +
+      //   "/" +
+      //   req.files.list_image[j].filename
+      // );
       list_image.push(
-        req.files.list_image[j].destination +
-          "/" +
-          req.files.list_image[j].filename
+        "images/uploads/ticket/" + req.files.list_image[j].filename
       );
+      console.log("images/uploads/ticket/" + req.files.list_image[j].filename);
     }
   }
-  console.log(list_image);
-
+  // console.log(list_image);
+  // return;
   const feature = [];
   if (req.body.specifications_key) {
     for (let i = 0; i < req.body.specifications_key.length; i++) {
@@ -108,8 +113,7 @@ exports.addTicket = (req, res, next) => {
     currency: req.body.currency,
     ticket_quantity: req.body.ticket_quantity,
     time_left: req.body.time_left,
-    main_image:
-      req.files.image[0].destination + "/" + req.files.image[0].filename,
+    main_image: "images/uploads/ticket/" + req.files.image[0].filename,
     list_image: list_image,
 
     description: req.body.description,

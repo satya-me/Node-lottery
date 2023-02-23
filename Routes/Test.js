@@ -11,7 +11,8 @@ router.post("/files_uploads", multipleImageUpload.array("photos", 10), testCtrl.
 router.get('/view', testCtrl.view);
 router.post('/pay/callback', testCtrl.CB);
 router.post('/pay/notify', testCtrl.NF);
-router.get('/hi', testCtrl.HI);
+
+router.get('/otp', testCtrl.OTP);
 
 
 

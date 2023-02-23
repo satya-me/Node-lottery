@@ -38,7 +38,7 @@ const userSchema = mongoose.Schema(
           // Check if the user is 18 or older
           const age = new Date(Date.now() - value.getTime());
           const ageInYears = age.getUTCFullYear() - 1970;
-          return ageInYears >= 21;
+          return ageInYears >= 17;
         },
         message: "Sorry, you must be 17 or older to register.",
       },
