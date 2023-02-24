@@ -354,14 +354,13 @@ exports.OrderHistory = async (req, res) => {
     const token = req.headers.authorization.split(" ")[1];
     const decoded = jwt.verify(token, "RANDOM_TOKEN_SECRET");
     const orderDocs = await Order.find({ user_id: decoded.userId });
-    const modifiedResponse = await Promise.all(
+    var modifiedResponse = await Promise.all(
       orderDocs.map(async (ticket) => {
-        const url = req.protocol + "://" + req.get("host");
         let Tid = await Ticket.findOne({ _id: ticket.product_id });
         return {
           ...ticket._doc,
           ticket_name: Tid.ticket_name,
-          image_link: url + "/" + Tid.main_image,
+          image_link: Tid.main_image,
           image_path: Tid.main_image,
           time_left: Tid.time_left,
         };

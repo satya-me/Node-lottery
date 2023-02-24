@@ -150,9 +150,11 @@ exports.addTicket = (req, res, next) => {
 };
 
 exports.addCategory = (req, res, next) => {
+  console.log("images/uploads/category/" + req.files.image[0].filename);
+  // return;
   const category = new Category({
     name: req.body.name,
-    image: req.files.image[0].destination + "/" + req.files.image[0].filename,
+    image: "images/uploads/category/" + req.files.image[0].filename,
   });
   category
     .save()
@@ -173,7 +175,7 @@ exports.getCategory = (req, res, next) => {
       const modifiedResponse = resp.map((category) => {
         return {
           ...category._doc,
-          image: `${url}/${category.image}`,
+          image: `${category.image}`,
           status: true,
         };
       });
