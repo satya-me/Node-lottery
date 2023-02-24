@@ -1,11 +1,11 @@
 const jwt = require("jsonwebtoken");
-const net = require("net");
-const os = require("os");
+// const net = require("net");
+// const os = require("os");
 
 module.exports = (req, res, next) => {
-  const clientIp = net.isIPv4(req.connection.remoteAddress)
-    ? req.connection.remoteAddress.split(":").pop()
-    : req.connection.remoteAddress.substr(7);
+  // const clientIp = net.isIPv4(req.connection.remoteAddress)
+  //   ? req.connection.remoteAddress.split(":").pop()
+  //   : req.connection.remoteAddress.substr(7);
   // console.log(
   //   "Request from IP is " + clientIp + ":" + req.headers.host.split(":").pop()
   // );
