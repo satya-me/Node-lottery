@@ -1,7 +1,7 @@
 const OtpTable = require("../Models/Otp");
 require("dotenv").config();
-const accountSid = 'ACa92ba8aa3f79a54d165f9637c7a5ae00'; //process.env.TWILIO_SID;
-const authToken = '2b106b75bb5a175c30b46bc8a7fb4ec2'; //process.env.TWILIO_TOKEN;
+const accountSid = process.env.TWILIO_SID;//'ACa92ba8aa3f79a54d165f9637c7a5ae00';
+const authToken = process.env.TWILIO_TOKEN;//'2b106b75bb5a175c30b46bc8a7fb4ec2'; 
 const twilio = require('twilio')(accountSid, authToken);
 
 // console.log(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
