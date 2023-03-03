@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema(
     // last_name: { type: String, required: [true, "Name is required"] },
     email: {
       type: String,
-      required: [true, "Email is required"],
+      // required: [true, "Email is required"],
       unique: [true, "Email is unique"],
       validate: {
         validator: function (email) {
@@ -22,13 +22,13 @@ const userSchema = mongoose.Schema(
       type: String,
       required: [true, "Phone number is required"],
       unique: true,
-      validate: {
-        validator: function (phone) {
-          return /^\d{10}$/.test(phone);
-        },
-        message:
-          "Invalid phone number format. Please enter a 10-digit phone number.",
-      },
+      // validate: {
+      //   validator: function (phone) {
+      //     return /^\d{10}$/.test(phone);
+      //   },
+      //   message:
+      //     "Invalid phone number format. Please enter a 10-digit phone number.",
+      // },
     },
     dob: {
       type: Date,
