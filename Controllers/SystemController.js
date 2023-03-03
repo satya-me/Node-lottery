@@ -82,8 +82,8 @@ exports.RegOTPVerify = async (req, res) => {
             try {
                 if (oTp[0].otp == otp && oTp[0].phone == phone) {
                     const result = await OtpTable.findByIdAndDelete(_otp_id);
-                    console.log({ message: "verify success", status: true });
-                    res.status(200).json({ message: "verify success", status: true });
+                    console.log({ message: "OTP verify success", status: true });
+                    res.status(200).json({ message: "OTP verify success", status: true });
                 } else {
                     console.log({ message: "Invalid OTP!", status: false });
                     res.status(200).json({ message: "Invalid OTP!", status: false });
@@ -108,7 +108,7 @@ exports.ForgetPassword = async (req, res) => {
     console.log("Calling ForgetPassword");
     console.log(req.body);
     const chk = await User.findOne({ phone: to });
-    console.log(chk);
+    // console.log(chk);
     // return;
     if (!chk) {
         console.log({ message: `This number is not registered with us!` });
@@ -132,9 +132,6 @@ exports.ForgetPassword = async (req, res) => {
                     to: to, // Replace with the recipient's phone number
                     from: '+14434999766' //process.env.TWILIO_NUMBER // Replace with your Twilio phone number +1 443 499 9766
                 });
-                // console.log(GenOtp);
-                // console.log(resp);
-                // return;
                 const existingRecord = await OtpTable.findOne({ phone: to, user_type: "Registration" });
 
                 if (existingRecord) {
