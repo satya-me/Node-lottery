@@ -107,9 +107,10 @@ exports.ForgetPassword = async (req, res) => {
     const to = req.body.phone_number;
     console.log("Calling ForgetPassword");
     console.log(req.body);
-    const chk = await User.find({ phone: to });
-
-    if (chk.length == 0) {
+    const chk = await User.findOne({ phone: to });
+    console.log(chk);
+    // return;
+    if (!chk) {
         console.log({ message: `This number is not registered with us!` });
         res.status(200).json({ message: `This number is not registered with us!`, status: false });
         return;
