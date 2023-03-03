@@ -61,13 +61,13 @@ exports.login = (req, res, next) => {
   //
   console.log(" Login route " + d);
   // { "$or": [ { email: req.body.email }, { phone: req.body.phone} ] }
-  const input = req.body.email || req.body.phone;
-  User.findOne({ $or: [{ email: req.body.email }, { phone: req.body.phone }] })
+  const input = req.body.phone;
+  User.findOne({ $or: [{ phone: req.body.phone }] })
     .then((user) => {
       if (!user) {
         if (!input) {
           return res.status(401).json({
-            data: { error: "Please enter email or phone", type: "user" },
+            data: { error: "Please enter phone", type: "user" },
           });
         } else {
           return res.status(401).json({
