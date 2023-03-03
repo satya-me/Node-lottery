@@ -4,7 +4,6 @@ require("dotenv").config();
 const accountSid = process.env.TWILIO_SID;//'ACa92ba8aa3f79a54d165f9637c7a5ae00';
 const authToken = process.env.TWILIO_TOKEN;//'2b106b75bb5a175c30b46bc8a7fb4ec2'; 
 const twilio = require('twilio')(accountSid, authToken);
-
 // console.log(process.env.TWILIO_SID, process.env.TWILIO_TOKEN);
 
 exports.RegOTP = async (req, res) => {
@@ -167,6 +166,5 @@ exports.ForgetPasswordVerify = async (req, res) => {
 
 exports.PasswordReset = async (req, res) => {
     // 
-    console.log(req.body);
-    res.status(200).json(req.body);
+    console.log("API Call");
 }
