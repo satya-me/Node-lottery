@@ -9,14 +9,14 @@ const userSchema = mongoose.Schema(
       type: String,
       // required: [true, "Email is required"],
       unique: [true, "Email is unique"],
-      validate: {
-        validator: function (email) {
-          return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(
-            email
-          );
-        },
-        message: "Invalid email format",
-      },
+      // validate: {
+      //   validator: function (email) {
+      //     return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(
+      //       email
+      //     );
+      //   },
+      //   message: "Invalid email format",
+      // },
     },
     phone: {
       type: String,
