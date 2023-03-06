@@ -1,5 +1,6 @@
 const Config = require("../Models/Config");
 const Postal = require("../Models/Postal");
+const phoneCode = require("../Models/PhoneCode");
 
 exports.getSettingConfig = (req, res, next) => {
   //
@@ -18,3 +19,28 @@ exports.getRegex = (req, res) => {
     if (resp) res.status(200).json(resp);
   });
 };
+
+exports.getPhoneCode = async (req, res) => {
+  try {
+    const data = await phoneCode.find({});
+    console.log(data);
+    res.status(200).json(data);
+  } catch (err) {
+    console.error(err);
+    res.status(200).json(err);
+  }
+};
+
+exports.getPhoneCodeById = async (req, res) => {
+  const code = req.params.code.toUpperCase();
+  // res.status(200).json(code);
+  // return;
+  try {
+    const data = await phoneCode.find({code: code});
+    console.log(data);
+    res.status(200).json(data);
+  } catch (err) {
+    console.error(err);
+    res.status(200).json(err);
+  }
+}

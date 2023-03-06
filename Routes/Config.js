@@ -13,4 +13,7 @@ router.get("/state/:id", countries_cities.state);
 
 router.get("/postal/regex/:iso", configCtrl.getRegex);
 
+router.get("/phone/code", configCtrl.getPhoneCode);
+router.get("/phone/code/:code", configCtrl.getPhoneCodeById);
+
 module.exports = router;
