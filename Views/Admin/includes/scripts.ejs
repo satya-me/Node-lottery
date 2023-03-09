@@ -78,3 +78,81 @@
     });
   });
 </script>
+<script>
+  $(function () {
+    $(".hidden").hide();
+
+    $(".trigger").change(function () {
+      var hiddenId = $(this).attr("data-trigger");
+
+      if ($(this).is(":checked")) {
+        // Show the hidden fields.
+        $("#" + hiddenId).show();
+      } else {
+        $("#" + hiddenId).hide();
+      }
+    });
+  });
+
+  (function () {
+    $(document).on("click", ".js-add--exam-row", function (e) {
+      var clone, examsList;
+      e.preventDefault();
+      examsList = $("#form-multiple-list");
+
+      clone = examsList.children(".form-group:first").clone(true);
+      clone.append(
+        $("<button>")
+          .addClass("btn btn-danger js-remove--exam-row")
+          .html('<i class="fas fa-trash-alt"></i>')
+      );
+      clone
+        .find("input")
+        .val("")
+        .attr("id", function () {
+          return (
+            $(this).attr("id") +
+            "_" +
+            (examsList.children(".form-group").length + 1)
+          );
+        });
+      return examsList.append(clone);
+    });
+
+    $(document).on("click", ".js-remove--exam-row", function (e) {
+      e.preventDefault();
+      return $(this).parent().remove();
+    });
+  }.call(this));
+
+  (function () {
+    $(document).on("click", ".js-spcification--exam-row", function (e) {
+      var clone, examsList;
+      e.preventDefault();
+      examsList = $("#specification");
+
+      clone = examsList.children(".2ndformgrp:first").clone(true);
+      clone.append(
+        $("<button>")
+          .addClass("btn btn-danger js-remove--exam-row")
+          .html('<i class="fas fa-trash-alt"></i>')
+      );
+      clone
+        .find("input")
+        .val("")
+        .attr("id", function () {
+          return (
+            $(this).attr("id") +
+            "_" +
+            (examsList.children(".2ndformgrp").length + 1)
+          );
+        });
+      return examsList.append(clone);
+    });
+
+    $(document).on("click", ".js-remove--exam-row", function (e) {
+      e.preventDefault();
+      return $(this).parent().remove();
+    });
+  }.call(this));
+</script>

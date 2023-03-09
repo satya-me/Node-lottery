@@ -23,7 +23,7 @@ exports.getRegex = (req, res) => {
 exports.getPhoneCode = async (req, res) => {
   try {
     const data = await phoneCode.find({});
-    console.log(data);
+    // console.log(data);
     res.status(200).json(data);
   } catch (err) {
     console.error(err);
