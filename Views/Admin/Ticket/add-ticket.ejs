@@ -1,5 +1,764 @@
 <%- include("../includes/A.ejs") %>
 <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Ticket</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">General Form</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
 
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- right column -->
+        <div class="col-md-12">
+          <!-- /.card -->
+
+          <!-- general form elements disabled -->
+          <div class="card card-warning">
+            <div class="card-header">
+              <h3 class="card-title">Add</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <form>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Ticket Name</label>
+                      <input
+                        type="text"
+                        name="ticket_name"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>Quantity</label>
+                      <input
+                        type="text"
+                        name="ticket_quantity"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>Price (FCAF)</label>
+                      <input
+                        type="text"
+                        name="ticket_price"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>Discount (%)</label>
+                      <input
+                        type="text"
+                        name="discount_percentage"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>Announced Date</label>
+                      <div
+                        class="input-group date"
+                        id="reservationdatetime"
+                        data-target-input="nearest"
+                      >
+                        <input
+                          type="text"
+                          name="announced_date"
+                          class="form-control datetimepicker-input"
+                          data-target="#reservationdatetime"
+                        />
+                        <div
+                          class="input-group-append"
+                          data-target="#reservationdatetime"
+                          data-toggle="datetimepicker"
+                        >
+                          <div class="input-group-text">
+                            <i class="fa fa-calendar"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="customFile">Main Image</label>
+                      <div class="custom-file">
+                        <input
+                          type="file"
+                          class="custom-file-input"
+                          id="customFile"
+                        />
+                        <label class="custom-file-label" for="customFile"
+                          >Choose file</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>View</label>
+                      <button type="button" class="form-control">
+                        <iconify-icon
+                          icon="uil:comment-alt-image"
+                          style="color: aqua"
+                        ></iconify-icon>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="customFile">Images</label>
+                      <div class="custom-file">
+                        <input
+                          type="file"
+                          class="custom-file-input"
+                          id="customFile"
+                          multiple
+                        />
+                        <label class="custom-file-label" for="customFile"
+                          >Choose file</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>View</label>
+                      <button type="button" class="form-control">
+                        <iconify-icon
+                          icon="uil:comment-alt-image"
+                          style="color: aqua"
+                        ></iconify-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>Highlights</label>
+                      <input
+                        type="text"
+                        name="ticket_name"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>Add</label>
+                      <button type="button" class="form-control">
+                        <iconify-icon
+                          icon="material-symbols:add-sharp"
+                          style="color: aqua"
+                          width="32"
+                          height="32"
+                        ></iconify-icon>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label>specification</label>
+                      <input
+                        type="text"
+                        name="ticket_name"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>Add</label>
+                      <button type="button" class="form-control">
+                        <iconify-icon
+                          icon="material-symbols:add-sharp"
+                          style="color: aqua"
+                          width="32"
+                          height="32"
+                        ></iconify-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="row"></div>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- textarea -->
+                    <div class="form-group">
+                      <label>Textarea</label>
+                      <textarea
+                        class="form-control"
+                        rows="3"
+                        placeholder="Enter ..."
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Textarea Disabled</label>
+                      <textarea
+                        class="form-control"
+                        rows="3"
+                        placeholder="Enter ..."
+                        disabled
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- input states -->
+                <div class="form-group">
+                  <!-- <label for="customFile">Custom File</label> -->
+                  <div class="custom-file">
+                    <input
+                      type="file"
+                      class="custom-file-input"
+                      id="customFile"
+                    />
+                    <label class="custom-file-label" for="customFile"
+                      >Choose file</label
+                    >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label" for="inputWarning"
+                    ><i class="far fa-bell"></i> Input with warning</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control is-warning"
+                    id="inputWarning"
+                    placeholder="Enter ..."
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label" for="inputError"
+                    ><i class="far fa-times-circle"></i> Input with error</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control is-invalid"
+                    id="inputError"
+                    placeholder="Enter ..."
+                  />
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- checkbox -->
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox">
+                        <input
+                          class="custom-control-input"
+                          type="checkbox"
+                          id="customCheckbox1"
+                          value="option1"
+                        />
+                        <label
+                          for="customCheckbox1"
+                          class="custom-control-label"
+                          >Custom Checkbox</label
+                        >
+                      </div>
+                      <div class="custom-control custom-checkbox">
+                        <input
+                          class="custom-control-input"
+                          type="checkbox"
+                          id="customCheckbox2"
+                          checked
+                        />
+                        <label
+                          for="customCheckbox2"
+                          class="custom-control-label"
+                          >Custom Checkbox checked</label
+                        >
+                      </div>
+                      <div class="custom-control custom-checkbox">
+                        <input
+                          class="custom-control-input"
+                          type="checkbox"
+                          id="customCheckbox3"
+                          disabled
+                        />
+                        <label
+                          for="customCheckbox3"
+                          class="custom-control-label"
+                          >Custom Checkbox disabled</label
+                        >
+                      </div>
+                      <div class="custom-control custom-checkbox">
+                        <input
+                          class="custom-control-input custom-control-input-danger"
+                          type="checkbox"
+                          id="customCheckbox4"
+                          checked
+                        />
+                        <label
+                          for="customCheckbox4"
+                          class="custom-control-label"
+                          >Custom Checkbox with custom color</label
+                        >
+                      </div>
+                      <div class="custom-control custom-checkbox">
+                        <input
+                          class="custom-control-input custom-control-input-danger custom-control-input-outline"
+                          type="checkbox"
+                          id="customCheckbox5"
+                          checked
+                        />
+                        <label
+                          for="customCheckbox5"
+                          class="custom-control-label"
+                          >Custom Checkbox with custom color outline</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <!-- radio -->
+                    <div class="form-group">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="radio1"
+                        />
+                        <label class="form-check-label">Radio</label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="radio1"
+                          checked
+                        />
+                        <label class="form-check-label">Radio checked</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" disabled />
+                        <label class="form-check-label">Radio disabled</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- select -->
+                    <div class="form-group">
+                      <label>Select</label>
+                      <select class="form-control">
+                        <option>option 1</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Select Disabled</label>
+                      <select class="form-control" disabled>
+                        <option>option 1</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- Select multiple-->
+                    <div class="form-group">
+                      <label>Select Multiple</label>
+                      <select multiple class="form-control">
+                        <option>option 1</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Select Multiple Disabled</label>
+                      <select multiple class="form-control" disabled>
+                        <option>option 1</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- /.card-body -->
+          </div>
+        </div>
+        <!--/.col (right) -->
+      </div>
+      <!-- /.row -->
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+          <!-- general form elements -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Basic Details</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Ticket Name</label>
+                  <input
+                    type="text"
+                    name="ticket_name"
+                    class="form-control"
+                    placeholder="Enter ..."
+                  />
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Quantity</label>
+                      <input
+                        type="text"
+                        name="ticket_quantity"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Price (FCAF)</label>
+                      <input
+                        type="text"
+                        name="ticket_price"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Discount (%)</label>
+                      <input
+                        type="text"
+                        name="discount_percentage"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Announced Date</label>
+                      <div
+                        class="input-group date"
+                        id="reservationdatetime"
+                        data-target-input="nearest"
+                      >
+                        <input
+                          type="text"
+                          name="announced_date"
+                          class="form-control datetimepicker-input"
+                          data-target="#reservationdatetime"
+                        />
+                        <div
+                          class="input-group-append"
+                          data-target="#reservationdatetime"
+                          data-toggle="datetimepicker"
+                        >
+                          <div class="input-group-text">
+                            <i class="fa fa-calendar"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Brand</label>
+                      <select class="form-control">
+                        <option>option 1</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Category</label>
+                      <select class="form-control">
+                        <option>option 1</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox">
+                        <label>Category</label>
+                        <input
+                          class="custom-control-input"
+                          type="checkbox"
+                          id="customCheckbox1"
+                          value="option1"
+                        />
+                        <label
+                          for="customCheckbox1"
+                          class="custom-control-label"
+                          >Status</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox">
+                        <label>Category</label>
+                        <input
+                          class="custom-control-input"
+                          type="checkbox"
+                          id="customCheckbox1"
+                          value="option1"
+                        />
+                        <label
+                          for="customCheckbox1"
+                          class="custom-control-label"
+                          >Banner</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- /.card -->
+          <div class="card card-primary">
+            <!-- <div class="card-header">
+                <h3 class="card-title">Quick Example</h3>
+              </div> -->
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-10">
+                    <div class="form-group">
+                      <label>Highlights</label>
+                      <input
+                        type="text"
+                        name="ticket_name"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>Add</label>
+                      <button type="button" class="form-control">
+                        <iconify-icon
+                          icon="material-symbols:add-sharp"
+                          style="color: aqua"
+                          width="32"
+                          height="32"
+                        ></iconify-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </form>
+          </div>
+          <div class="card card-primary">
+            <!-- form start -->
+            <form>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <div class="form-group">
+                      <label>Key</label>
+                      <input
+                        type="text"
+                        name="ticket_name"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="form-group">
+                      <label>Specification</label>
+                      <input
+                        type="text"
+                        name="ticket_name"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>Add</label>
+                      <button type="button" class="form-control">
+                        <iconify-icon
+                          icon="material-symbols:add-sharp"
+                          style="color: aqua"
+                          width="32"
+                          height="32"
+                        ></iconify-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </form>
+          </div>
+
+          <!-- general form elements disabled -->
+
+          <!-- /.card -->
+          <!-- general form elements disabled -->
+
+          <!-- /.card -->
+        </div>
+        <div class="col-md-6">
+          <!-- general form elements -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Media</h3>
+            </div>
+            <form>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="customFile">Main Image</label>
+                      <div class="custom-file">
+                        <input
+                          type="file"
+                          class="custom-file-input"
+                          id="customFile"
+                        />
+                        <label class="custom-file-label" for="customFile"
+                          >Choose file</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </form>
+          </div>
+          <!-- /.card -->
+          <div class="card card-primary">
+            <form>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <label for="customFile">Image List</label>
+                      <div class="custom-file">
+                        <input
+                          type="file"
+                          class="custom-file-input"
+                          id="customFile"
+                          multiple
+                        />
+                        <label class="custom-file-label" for="customFile"
+                          >Choose files</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </form>
+          </div>
+
+          <div class="card card-primary">
+            <form>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label>Description</label>
+                      <textarea
+                        class="form-control"
+                        rows="4"
+                        placeholder="Enter ..."
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </form>
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
 <!-- /.content-wrapper -->
 <%- include("../includes/B.ejs") %>

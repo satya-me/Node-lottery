@@ -32,7 +32,7 @@ exports.signup = (req, res, next) => {
       .save()
       .then((resp) => {
         const filteredResp = {
- 
+
 
           _id: resp._id,
           full_name: resp.full_name,
@@ -57,13 +57,28 @@ exports.signup = (req, res, next) => {
   });
 };
 
-exports.login = (req, res, next) => {
+exports.login = async (req, res, next) => {
   //
+  var user_id;
+  var query;
+  if (req.body.user_id_type === 'email') {
+    console.log(req.body);
+    user_id = req.body.user_id;
+    query = { email: user_id };
+  }
+  if (req.body.user_id_type === 'phone') {
+    console.log(req.body);
+    user_id = req.body.user_id;
+    query = { phone: user_id };
+  }
+
+  // return;
   console.log(" Login route " + d);
   // { "$or": [ { email: req.body.email }, { phone: req.body.phone} ] }
-  const input = req.body.phone;
-  User.findOne({ $or: [{ phone: req.body.phone }] })
+  const input = user_id;
+  User.findOne({ $or: [query] })
     .then((user) => {
+      console.log(user);
       if (!user) {
         if (!input) {
           return res.status(401).json({
@@ -216,7 +231,7 @@ exports.allTickets = (req, res, next) => {
     });
 };
 
-exports.ticketById = (req, res, next) => {};
+exports.ticketById = (req, res, next) => { };
 
 exports.UpdateProfile = async (req, res) => {
   // full_name
