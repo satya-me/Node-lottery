@@ -34,7 +34,7 @@
 <script src="/admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="/admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="/admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-
+<script src="/admin/plugins/select2/js/select2.full.min.js"></script>
 <!-- InputMask -->
 <script src="/admin/plugins/moment/moment.min.js"></script>
 <script src="/admin/plugins/inputmask/jquery.inputmask.min.js"></script>
@@ -51,6 +51,11 @@
 </script>
 <script>
   $(function () {
+    $('.select2').select2()
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+    
     $("#example1")
       .DataTable({
         responsive: true,
@@ -73,6 +78,10 @@
 
     //Date and time picker
     $("#reservationdatetime").datetimepicker({
+      icons: { time: "far fa-clock" },
+      format: "YYYY-MM-DD HH:mm",
+    });
+    $("#reservationdatetime2").datetimepicker({
       icons: { time: "far fa-clock" },
       format: "YYYY-MM-DD HH:mm",
     });
@@ -155,4 +164,25 @@
       return $(this).parent().remove();
     });
   }.call(this));
+
+  (function() {
+      $(document).on('click', '.roundfiledadd', function(e) {
+        var clone, examsList;
+        e.preventDefault();
+        examsList = $('#round');
+    
+        clone = examsList.children('.roundfiled:first').clone(true);
+        clone.append($('<button>').addClass('btn btn-danger js-remove--exam-row').html('<i class="fas fa-trash-alt"></i>'));
+        clone.find('input').val('').attr('id', function() {
+          return $(this).attr('id') + '_' + (examsList.children('.roundfiled').length + 1);
+        });
+        return examsList.append(clone);
+      });
+    
+      $(document).on('click', '.js-remove--exam-row', function(e) {
+        e.preventDefault();
+        return $(this).parent().remove();
+      });
+    
+    }).call(this);
 </script>

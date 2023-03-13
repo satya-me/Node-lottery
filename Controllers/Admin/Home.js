@@ -6,7 +6,7 @@ const path = require("path");
 const d = new Date();
 
 exports.home = async (req, res) => {
-    console.log('User email:', req.session.user);
+    // console.log('User email:', req.session.user);
 
     if (!req.session.user) {
         let meta = {

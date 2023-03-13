@@ -1,0 +1,23 @@
+[
+    {
+        "Home": "/home"
+    },
+    {
+        "Add Ticket": "/add-ticket"
+    },
+    {
+        "List Ticket": "/list-ticket"
+    },
+    {
+        "Edit Ticket": "/edit-ticket/:id"
+    },
+    {
+        "Add Category": "/add-category"
+    },
+    {
+        "Edit Category": "/edit-category/:id"
+    },
+    {
+        "Admin Group": "/admin-group"
+    }
+]

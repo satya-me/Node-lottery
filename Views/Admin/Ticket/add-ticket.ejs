@@ -1,369 +1,311 @@
 <%- include("../includes/A.ejs") %>
-<!-- Content Wrapper. Contains page content -->
-<style>
-  .js-remove--exam-row {
-    margin-left: 0.5rem;
-    display: block;
-  }
+  <!-- Content Wrapper. Contains page content -->
+  <style>
+    .js-remove--exam-row {
+      margin-left: 0.5rem;
+      display: block;
+    }
 
-  .header_filed {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10rem;
-    margin-bottom: 2rem;
-  }
+    .header_filed {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10rem;
+      margin-bottom: 2rem;
+    }
 
-  .header_filed h3 {
-    font-size: 1rem;
-    font-weight: bold;
-  }
+    .header_filed h3 {
+      font-size: 1rem;
+      font-weight: bold;
+    }
 
-  .input_style {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    gap: 0.5rem;
-  }
-</style>
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <section class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1>Add Ticket</h1>
-        </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">General Form</li>
-          </ol>
+    .input_style {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 0.5rem;
+    }
+  </style>
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Add Ticket</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">General Form</li>
+            </ol>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- /.container-fluid -->
-  </section>
+      <!-- /.container-fluid -->
+    </section>
 
-  <!-- Main content -->
-  <section class="content">
-    <div class="container-fluid">
-      <!-- /.row -->
-      <form action="">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-md-6">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Basic Details</h3>
-              </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-
-              <div class="card-body">
-                <div class="form-group">
-                  <label>Ticket Name</label>
-                  <input
-                    type="text"
-                    name="ticket_name"
-                    class="form-control"
-                    placeholder="Enter Ticket name"
-                  />
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- /.row -->
+        <form action="/admin/add-ticket" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="folder" value="ticket" />
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+              <!-- general form elements -->
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Basic Details</h3>
                 </div>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="form-group">
-                      <label>Description</label>
-                      <textarea
-                        class="form-control"
-                        rows="4"
-                        placeholder="Enter ..."
-                      ></textarea>
-                    </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>Ticket Name</label>
+                    <input type="text" name="ticket_name" class="form-control" required placeholder="Enter Ticket name" />
                   </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label>Quantity</label>
-                      <input
-                        type="text"
-                        name="ticket_quantity"
-                        class="form-control"
-                        placeholder="Enter ..."
-                      />
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" class="form-control" rows="4" placeholder="Enter ..."></textarea>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label>Price (FCAF)</label>
-                      <input
-                        type="text"
-                        name="ticket_price"
-                        class="form-control"
-                        placeholder="Enter ..."
-                      />
+                    <!-- <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Quantity</label>
+                        <input type="text" name="ticket_quantity" class="form-control" placeholder="Enter ..." />
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label>Discount (%)</label>
-                      <input
-                        type="text"
-                        name="discount_percentage"
-                        class="form-control"
-                        placeholder="Enter ..."
-                      />
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Price (FCAF)</label>
+                        <input type="text" name="ticket_price" class="form-control" placeholder="Enter ..." />
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label>Announced Date</label>
-                      <div
-                        class="input-group date"
-                        id="reservationdatetime"
-                        data-target-input="nearest"
-                      >
-                        <input
-                          type="text"
-                          name="announced_date"
-                          class="form-control datetimepicker-input"
-                          data-target="#reservationdatetime"
-                        />
-                        <div
-                          class="input-group-append"
-                          data-target="#reservationdatetime"
-                          data-toggle="datetimepicker"
-                        >
-                          <div class="input-group-text">
-                            <i class="fa fa-calendar"></i>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Discount (%)</label>
+                        <input type="text" name="discount_percentage" class="form-control" placeholder="Enter ..." />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Announced Date</label>
+                        <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                          <input type="text" name="announced_date" class="form-control datetimepicker-input"
+                            data-target="#reservationdatetime" />
+                          <div class="input-group-append" data-target="#reservationdatetime"
+                            data-toggle="datetimepicker">
+                            <div class="input-group-text">
+                              <i class="fa fa-calendar"></i>
+                            </div>
                           </div>
+                        </div>
+                      </div>
+                    </div> -->
+                  </div>
+                  <div class="row">
+
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label>Category</label>
+                        <select class="form-control" name="category">
+                          <% meta.category.forEach(function(item) { %>
+                            <option value="<%= item.id %>">
+                              <%= item.name %>
+                            </option>
+                            <% }); %>
+
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                          <input class="custom-control-input" type="checkbox" id="customCheckbox1" name="status" />
+                          <label for="customCheckbox1" class="custom-control-label">Status</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                          <input class="custom-control-input trigger" type="checkbox" id="checkbox_one" name="is_banner"
+                            data-trigger="hidden_fields_one" />
+                          <label for="checkbox_one" class="custom-control-label">Banner</label>
+                        </div>
+                      </div>
+                      <div id="hidden_fields_one" class="hidden">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="customFile" name="is_banner_image" />
+                          <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label>Brand</label>
-                      <select class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <label>Category</label>
-                      <select class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <!--  -->
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox">
-                        <input
-                          class="custom-control-input"
-                          type="checkbox"
-                          id="customCheckbox1"
-                          value="option1"
-                        />
-                        <label
-                          for="customCheckbox1"
-                          class="custom-control-label"
-                          >Status</label
-                        >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-12">
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox">
-                        <input
-                          class="custom-control-input trigger"
-                          type="checkbox"
-                          id="checkbox_one"
-                          name="banner"
-                          data-trigger="hidden_fields_one"
-                        />
-                        <label for="checkbox_one" class="custom-control-label"
-                          >Banner</label
-                        >
-                      </div>
-                    </div>
-                    <div id="hidden_fields_one" class="hidden">
-                      <div class="custom-file">
-                        <input
-                          type="file"
-                          class="custom-file-input"
-                          id="customFile"
-                        />
-                        <label class="custom-file-label" for="customFile"
-                          >Choose file</label
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
-            </div>
-            <!-- /.card -->
-            <div class="card card-primary">
-              <!-- form start -->
+              <!-- /.card -->
+              <div class="card card-primary">
+                <!-- form start -->
 
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="header_filed">
-                      <div class="heding_form">
-                        <h3>Highlights</h3>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="header_filed">
+                        <div class="heding_form">
+                          <h3>Highlights</h3>
+                        </div>
+
+                        <button type="button" class="btn btn-success js-add--exam-row">
+                          Add more <i class="fas fa-plus-circle"></i>
+                        </button>
                       </div>
-
-                      <button
-                        type="button"
-                        class="btn btn-success js-add--exam-row"
-                      >
-                        Add more <i class="fas fa-plus-circle"></i>
-                      </button>
                     </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="form-multiple-list" id="form-multiple-list">
-                      <div class="form-group d-flex">
-                        <input
-                          type="text"
-                          name="Highlights1"
-                          class="form-control"
-                          placeholder="Enter highlighted point"
-                        />
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-multiple-list" id="form-multiple-list">
+                        <div class="form-group d-flex">
+                          <input type="text" name="highlights[]" class="form-control"
+                            placeholder="Enter highlighted point" />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <!-- /.card-body -->
               </div>
-              <!-- /.card-body -->
-            </div>
-            <div class="card card-primary">
-              <!-- form start -->
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="header_filed">
-                      <div class="heding_form">
-                        <h3>Specification</h3>
-                      </div>
+              <div class="card card-primary">
+                <!-- form start -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="header_filed">
+                        <div class="heding_form">
+                          <h3>Specification</h3>
+                        </div>
 
-                      <button
-                        type="button"
-                        class="btn btn-success js-spcification--exam-row"
-                      >
-                        Add more <i class="fas fa-plus-circle"></i>
-                      </button>
+                        <button type="button" class="btn btn-success js-spcification--exam-row">
+                          Add more <i class="fas fa-plus-circle"></i>
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="form-multiple-list" id="specification">
-                      <div class="form-group 2ndformgrp input_style">
-                        <input
-                          type="text"
-                          name=""
-                          class="form-control"
-                          placeholder="Key"
-                        />
-                        <input
-                          type="text"
-                          name=""
-                          class="form-control"
-                          placeholder="specification"
-                        />
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-multiple-list" id="specification">
+                        <div class="form-group 2ndformgrp input_style">
+                          <input type="text" name="spec_key[]" class="form-control" placeholder="Key" />
+                          <input type="text" name="spec_value[]" class="form-control" placeholder="specification" />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <!-- /.card-body -->
               </div>
-              <!-- /.card-body -->
-            </div>
 
-            <!-- /.card -->
+              <!-- /.card -->
+            </div>
+            <div class="col-md-6">
+              <!-- general form elements -->
+              <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Media</h3>
+                </div>
+
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label for="customFile">Main Image</label>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" required id="customFile" name="main_image" />
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+              <div class="card card-primary">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <label for="customFile">Image List</label>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="customFile" name="list_image" multiple />
+                          <label class="custom-file-label" for="customFile">Choose files</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <div class="card card-primary">
+                <!-- form start -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="header_filed">
+                        <div class="heding_form">
+                          <h3>Round</h3>
+                        </div>
+
+                        <button type="button" class="btn btn-success roundfiledadd">
+                          Add more <i class="fas fa-plus-circle"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-multiple-list" id="round">
+                        <div class="form-group roundfiled input_style">
+                          <input type="text" name="round_qty[]" class="form-control" placeholder="Quantity" />
+                          <input type="text" name="round_price[]" class="form-control" placeholder="Price" />
+                          <input type="text" name="round_dis[]" class="form-control" placeholder="Discount" />
+                          <input type="date" name="round_time[]" class="form-control" placeholder="Time" />
+                          <!-- <div class="input-group date" id="reservationdatetime2" data-target-input="nearest">
+                            <input type="text" name="announced_date" class="form-control datetimepicker-input"
+                              data-target="#reservationdatetime2" />
+                            <div class="input-group-append" data-target="#reservationdatetime2"
+                              data-toggle="datetimepicker">
+                              <div class="input-group-text">
+                                <i class="fa fa-calendar"></i>
+                              </div>
+                            </div>
+                          </div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
           </div>
-          <div class="col-md-6">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Media</h3>
-              </div>
-
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="form-group">
-                      <label for="customFile">Main Image</label>
-                      <div class="custom-file">
-                        <input
-                          type="file"
-                          class="custom-file-input"
-                          id="customFile"
-                        />
-                        <label class="custom-file-label" for="customFile"
-                          >Choose file</label
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-            <div class="card card-primary">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="form-group">
-                      <label for="customFile">Image List</label>
-                      <div class="custom-file">
-                        <input
-                          type="file"
-                          class="custom-file-input"
-                          id="customFile"
-                          multiple
-                        />
-                        <label class="custom-file-label" for="customFile"
-                          >Choose files</label
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-
-            <!-- /.card -->
-          </div>
-        </div>
-      </form>
-    </div>
-    <!-- /.container-fluid -->
-  </section>
-  <!-- /.content -->
-</div>
-<script></script>
-<!-- /.content-wrapper -->
-<%- include("../includes/B.ejs") %>
+          <button type="submit" id="add-ticket">Add Ticket</button>
+        </form>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <script></script>
+  <!-- /.content-wrapper -->
+  <%- include("../includes/B.ejs") %>

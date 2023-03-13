@@ -14,10 +14,11 @@ const cors = require("cors");
 const fs = require('fs');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
 
 
 // const expressLayout = require('express-ejs-layouts');
-const session = require('express-session');
 require("dotenv").config();
 
 mongoose.set("strictQuery", true);
@@ -34,11 +35,19 @@ mongoose
 const app = express();
 
 // Configure the express-session middleware
+const fileStoreOptions = {
+  ttl: 3600 * 2 //3600 // session files expire after 1 hour
+};
+// console.log(fileStoreOptions);
 app.use(session({
   secret: 'your-secret-key',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false } // set this to true if you're using HTTPS
+  // store: new FileStore(fileStoreOptions),
+  cookie: {
+    secure: false,
+    maxAge: 60000
+  } // set this to true if you're using HTTPS
 }));
 
 // Set Templating Engine
@@ -69,20 +78,11 @@ app.use("/api/system", systemRoutes);
 // temp test route
 app.use("/api/test", testRoutes);
 app.use('/hi', (req, res) => {
-  // const filePath = './Public/file.wav'; // Replace with the actual path to the audio file
-  // const stat = fs.statSync(filePath);
-
-  // res.writeHead(200, {
-  //   'Content-Type': 'audio/wav',
-  //   'Content-Length': stat.size
-  // });
-
-  // const stream = fs.createReadStream(filePath);
-  // stream.pipe(res);
 
   res.status(200).json("Hello, Node Server is running .....");
 
 });
+
 
 app.set("port", process.env.PORT || 3303);
 

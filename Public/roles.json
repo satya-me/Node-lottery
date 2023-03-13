@@ -1,0 +1,23 @@
+{
+    "Webmaster": {
+        "allowedRoutes": [
+            "*"
+        ]
+    },
+    "Admin": {
+        "allowedRoutes": [
+            "/",
+            "/home",
+            "/list-ticket"
+        ]
+    },
+    "Manager": {
+        "allowedRoutes": [
+            "/",
+            "/home",
+            "/add-ticket",
+            "/list-ticket",
+            "/edit-ticket/:id"
+        ]
+    }
+}

@@ -78,17 +78,11 @@ exports.login = (req, res, next) => {
 };
 
 exports.addTicket = (req, res, next) => {
-  // console.log(req.files.image[0].destination);
-  // console.log("images/uploads/ticket/" + req.files.image[0].filename);
-  // return;
+
   let list_image = [];
   if (req.files.list_image) {
     for (let j = 0; j < req.files.list_image.length; j++) {
-      // list_image.push(
-      //   req.files.list_image[j].destination +
-      //   "/" +
-      //   req.files.list_image[j].filename
-      // );
+
       list_image.push(
         "images/uploads/ticket/" + req.files.list_image[j].filename
       );

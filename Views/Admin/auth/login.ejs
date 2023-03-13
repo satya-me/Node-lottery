@@ -1,88 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><%- meta.title %></title>
 
-    <!-- Google Font: Source Sans Pro -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
-    />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="/admin/plugins/fontawesome-free/css/all.min.css"
-    />
-    <!-- icheck bootstrap -->
-    <link
-      rel="stylesheet"
-      href="/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css"
-    />
-    <!-- Theme style -->
-    <link
-      rel="stylesheet"
-      href="/admin/dist/css/adminlte.min.css"
-    />
-  </head>
-  <body class="hold-transition login-page">
-    <div class="login-box">
-      <!-- /.login-logo -->
-      <div class="card card-outline card-primary">
-        <div class="card-header text-center">
-          <img
-            src="/admin/dist/img/logo-lottery.png"
-            alt=""
-            srcset=""
-          />
-        </div>
-        <div class="card-body">
-          <p class="login-box-msg">Sign in to start your session</p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><%- meta.title %></title>
 
-          <form action="<%= meta.url+'/login' %>" id="loginForm" method="post">
-            <div class="input-group mb-3">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                class="form-control border"
-                placeholder="Email"
-              />
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-envelope"></span>
-                </div>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/admin/plugins/fontawesome-free/css/all.min.css" />
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css" />
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/admin/dist/css/adminlte.min.css" />
+</head>
+
+<body class="hold-transition login-page">
+  <div class="login-box">
+    <!-- /.login-logo -->
+    <div class="card card-outline card-primary">
+      <div class="card-header text-center">
+        <img src="/admin/dist/img/logo-lottery.png" alt="" srcset="" />
+      </div>
+      <div class="card-body">
+        <p class="login-box-msg">Sign in to start your session</p>
+
+        <form action="" id="loginForm" method="post">
+          <input type="hidden" name="type" id="type" value="">
+          <div class="input-group mb-3">
+            <input type="text" name="emailOrPhone" id="emailOrPhone" class="form-control border"
+              placeholder="Phone/Email" value="admin@gmail.com" />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
               </div>
             </div>
-            <div class="input-group mb-3">
-              <input
-                type="password"
-                name="password"
-                id="password"
-                class="form-control border"
-                placeholder="Password"
-              />
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-lock"></span>
-                </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" name="password" id="password" class="form-control border" placeholder="Password"
+              value="test" />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
               </div>
             </div>
-            <div class="row">
-              <!-- /.col -->
-              <div class="col-4">
-                <button type="submit" class="btn btn-primary btn-block">
-                  Sign In
-                </button>
-              </div>
-              <!-- /.col -->
+          </div>
+          <div class="row">
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="button" onclick="DoLogin();" class="btn btn-primary btn-block">
+                Sign In
+              </button>
             </div>
-          </form>
-          <!-- /.social-auth-links -->
+            <!-- /.col -->
+          </div>
+        </form>
+        <!-- /.social-auth-links -->
+      </div>
+      <% if (errorMessage) { %>
+        <div class="alert alert-danger">
+          <%= errorMessage %>
         </div>
-        <% if (errorMessage) { %>
-        <div class="alert alert-danger"><%= errorMessage %></div>
         <script>
           var logo = document.querySelectorAll(".input-group-text");
           for (var i = 0; i < logo.length; i++) {
@@ -90,28 +70,57 @@
           }
         </script>
         <% } %>
-        <!-- /.card-body -->
-      </div>
-      <!-- /.card -->
+          <!-- /.card-body -->
     </div>
-    <!-- /.login-box -->
+    <!-- /.card -->
+  </div>
+  <!-- /.login-box -->
 
-    <!-- jQuery -->
-    <script src="/admin/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="/admin/dist/js/adminlte.min.js"></script>
+  <!-- jQuery -->
+  <script src="/admin/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="/admin/dist/js/adminlte.min.js"></script>
 
-    <script>
-      function DoLogin() {
-        var email = $("#email").val();
-        var password = $("#password").val();
+  <script>
+    function DoLogin() {
+
+      var password = $("#password").val();
+      const input = document.getElementById("emailOrPhone").value;
+      // let inputType = document.getElementById("type").value = "email";
+      let isValid = false;
+      // let inputType = "";
+
+      // check if the input is an email
+      if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(input)) {
+        isValid = true;
+        // inputType = "email";
+        document.getElementById("type").value = "email";
+      }
+
+      // check if the input is a phone number
+      if (/^\d{10}$/.test(input)) {
+        isValid = true;
+        // inputType = "phone";
+        document.getElementById("type").value = "phone";
+      }
+
+      // display error message if the input is invalid
+      if (!isValid) {
+        alert("Please enter a valid email or phone number.");
+        return false;
+      }
+
+      var type = $("#type").val();
+      // console.log(type);
+      if (isValid) {
         $.ajax({
           type: "POST",
           url: "<%= meta.url+'/login' %>",
           data: {
-            email: email,
+            type: type,
+            input: input,
             password: password,
           },
           dataType: "text",
@@ -132,7 +141,8 @@
           },
         });
       }
-    </script>
-  </body>
-</html>
+    }
+  </script>
+</body>
 
+</html>

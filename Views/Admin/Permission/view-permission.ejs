@@ -1,0 +1,255 @@
+<%- include("../includes/A.ejs") %>
+    <style>
+        .divder {
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 254, 254, 0.407);
+            margin: 1rem 0;
+        }
+    </style>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Permission</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">General Form</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-6">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Permission Form</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form action="/admin/create-group" method="post" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+
+                                            <div class="form-group">
+                                                <label for="permission_name">Permission Account Name</label>
+                                                <input type="text" class="form-control" name="permission_name"
+                                                    id="permission_name" placeholder="Permission Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+
+                                            <div class="form-group">
+                                                <label>All Routes</label>
+                                                <select multiple name="allowed_route" class="form-control">
+                                                    <% rout.forEach(function(item) { %>
+                                                        <% Object.entries(item).forEach(([key, value])=> { %>
+                                                            <option value="<%= value %>">
+                                                                <%= key %>
+                                                            </option>
+                                                            <% }) %>
+                                                                <% }) %>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+
+                                <div class="card-footer text-center">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">List Permission</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Name</th>
+                                            <th style="width: 40px">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- roles -->
+                                        <% roles.forEach(function(item) { %>
+                                            <tr>
+                                                <td>
+                                                    1.
+                                                </td>
+                                                <td>
+                                                    <%=item.permission_type %>
+                                                </td>
+                                                <td><span class="badge bg-primary">View</span></td>
+                                            </tr>
+                                            <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <div class="divder"></div>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-6">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Create Admin Group</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form action="/admin/create-admin-group" id="create-admin-group" method="post"
+                                enctype="multipart/form-data">
+                                <input type="hidden" name="type" id="type" value="">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="user_name">User Name</label>
+                                                <input type="text" class="form-control" name="user_name" id="user_name"
+                                                    placeholder="User Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="emailOrPhone">Phone/Email</label>
+                                                <input type="text" class="form-control" name="emailOrPhone"
+                                                    id="emailOrPhone" placeholder="Phone/Email">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="password">Password</label>
+                                                <input type="text" class="form-control" id="password"
+                                                    placeholder="Auto Generate (Sent By OTP)" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>All Routes</label>
+                                                <select name="allowed_route" class="form-control">
+                                                    <%roles.forEach(function(item) { %>
+                                                        <option value="<%=item.permission_type %>">
+                                                            <%=item.permission_type %>
+                                                        </option>
+                                                        <% }) %>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+
+                                <div class="card-footer text-center">
+                                    <button type="button" class="btn btn-primary" onclick="validate()">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">List of Admin</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Name</th>
+                                            <th style="width: 40px">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- roles -->
+                                        <% roles.forEach(function(item) { %>
+                                            <tr>
+                                                <td>
+                                                    1.
+                                                </td>
+                                                <td>
+                                                    <%=item.permission_type %>
+                                                </td>
+                                                <td><span class="badge bg-primary">View</span></td>
+                                            </tr>
+                                            <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <script>
+        function validate() {
+            const input = document.getElementById("emailOrPhone").value;
+            // let inputType = document.getElementById("type").value = "email";
+            let isValid = false;
+            // let inputType = "";
+
+            // check if the input is an email
+            if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(input)) {
+                isValid = true;
+                // inputType = "email";
+                document.getElementById("type").value = "email";
+            }
+
+            // check if the input is a phone number
+            if (/^\d{10}$/.test(input)) {
+                isValid = true;
+                // inputType = "phone";
+                document.getElementById("type").value = "phone";
+            }
+
+            // display error message if the input is invalid
+            if (!isValid) {
+                alert("Please enter a valid email or phone number.");
+                return false;
+            }
+
+            console.log(isValid);
+
+            // if input is valid, submit the form
+            if (isValid) {
+                const form = document.getElementById("create-admin-group");
+                form.submit();
+            }
+            return true;
+        }
+
+    </script>
+    <!-- /.content-wrapper -->
+    <%- include("../includes/B.ejs") %>

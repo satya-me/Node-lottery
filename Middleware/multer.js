@@ -3,10 +3,21 @@ const fs = require("fs");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    if (req.body.folder) {
-      F = "/" + req.body.folder;
-    } else {
-      F = "";
+    var F = "";
+    if (req.body.folder == "ticket") {
+      const words = req.body.ticket_name.trim().split(/\s+/);
+      const maxWords = words.slice(0, 5); // select max 4 words
+      const joinedWords = maxWords.join('_').toLowerCase(); // join with underscore and convert to lowercase
+
+      F = "/" + req.body.folder + "/" + joinedWords;
+    }
+    if (req.body.folder == "category") {
+      const words = req.body.category_name.trim().split(/\s+/);
+      const maxWords = words.slice(0, 5); // select max 4 words
+      const joinedWords = maxWords.join('_').toLowerCase(); // join with underscore and convert to lowercase
+
+      F = "/" + req.body.folder + "/" + joinedWords;
+
     }
     const uploadFolder = "public/images/uploads" + F;
     if (!fs.existsSync(uploadFolder)) {

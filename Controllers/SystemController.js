@@ -143,7 +143,7 @@ exports.ForgetPassword = async (req, res) => {
                     to: user_id,
                     subject: "✅ Mail sent using Node.js",
                     text: "That was easy!",
-                 
+
                     html: "Your Password reset OTP is " + GenOtp,
                 };
 
@@ -155,7 +155,7 @@ exports.ForgetPassword = async (req, res) => {
                         ref.push(info.response);
                     }
                 });
-                
+
                 const existingRecord = await OtpTable.findOne({ email: user_id, user_type: "Registration" });
 
                 if (existingRecord) {
